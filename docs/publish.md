@@ -101,3 +101,5 @@ It can be verified that the packages have the correct files by inspecting them. 
 Once the library has been prepared for publication, the following command will upload packages to PyPI for anyone to use:
 
 `twine upload dist/*`
+
+Bumpver can be used to track versions of the project. The bumpver init command will configure this tool to the project, and produce a  
