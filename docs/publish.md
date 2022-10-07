@@ -4,7 +4,7 @@ Detailed here is the method by which this library extension will be published. T
 
 ### Configuration
 
-The build system and the package itself must be configured before the library is published. This is done through the use of a pyproject.toml file. The build system that will be used is setuptools, and in the file, this build configuration can be specified in the build-system section. It is best practice  to place the build directory into a file called /src. This section specifies what dependencies will be necessary for building the package.
+The build system and the package itself must be configured before the library is published. This is done through the use of a pyproject.toml file. The build system that will be used is setuptools, and in the file, this build configuration can be specified in the build-system section. It is best practice to place the build directory into a file called /src. This section specifies what dependencies will be necessary for building the package.
 
 To configure the package, the project section must assign values to various fields. Most of these fields are optional (all but name and version), but the rest are necessary to fill in for the purposes of the project. The library is more attractive and findable on PyPI with these fields filled in, and this in turn ensures maximal convienience for the clients.
 
@@ -101,5 +101,3 @@ It can be verified that the packages have the correct files by inspecting them. 
 Once the library has been prepared for publication, the following command will upload packages to PyPI for anyone to use:
 
 `twine upload dist/*`
-
-Bumpver can be used to track versions of the project. The bumpver init command will configure this tool to the project, and produce a  
