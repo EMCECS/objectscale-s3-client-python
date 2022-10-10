@@ -65,3 +65,6 @@ Here are changes we plan to implement in the next sprint:
    * More upfront communication about resources to use
    * More worktime during the week to correlate with Dell working hours
    * Two people taking on difficult spikes if necessary
+
+## Demo Video Link
+https://youtu.be/9pacWo9PmTc
