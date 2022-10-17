@@ -57,6 +57,14 @@ Note: All events can also utilize inheritance from their respective classes (inh
 
 -------
 
+## Conclusion
+
+By registering functions to events we gain the ability to call functions on top of the existing boto3 library services. We can also pass into functions custom parameters to support metadata fields needed in ObjectScale.
+
+This will allow us to extend the existing calls with no addition work by the user.
+
+The only other functionality for a complete new API call is where the new field is held!
+
 ## Important Terms
 Session: a session manages state about a particular configuration
 Stores Credentials, AWS Region, and profile related info
