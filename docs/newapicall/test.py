@@ -40,17 +40,26 @@ registerEvent = client.meta.events
 def custom_method(self):
     print('-----------------------------------------')
 
-def add_custom_method(class_attributes, **kwargs):
-    print('-----------------------------------------')
-    if 'Bucket' not in class_attributes:
-        class_attributes['Bucket'] = 'drayerbucket'
+def add_custom_method(params, **kwargs):
+    print('We can add methods to events!')
+    response = client.list_buckets() # call extra functionality
+    print(response)
+    if 'Bucket' not in params:
+        params['Bucket'] = 'new' # pass in parameters
+
+
+
+
+
+    # if 'Bucket' not in class_attributes:
+    #     class_attributes['Bucket'] = 'drayerbucket'
 
 registerEvent.register('provide-client-params.s3.ListObjects', add_custom_method)
 
-response = client.list_buckets()
-# print(response)
 
-res = client.list_objects()
+
+res = client.list_objects() # parameters passed in method
+# res = client.list_objects(Bucket='drayerbucket')
 print(res)
 
 # classAttr = {}
