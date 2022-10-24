@@ -5,6 +5,8 @@ import requests
 import sys, os, base64, datetime, hashlib, hmac
 import os
 
+from boto3.session import Session
+
 urllib3.disable_warnings()
 
 
@@ -28,24 +30,17 @@ cred_object = {
 
 # print(cred_object)
 
-client = boto3.client('s3', **cred_object)
-
-if client is None: 
-    print('Failed')
-
-registerEvent = client.meta.events
 
 
 
 def custom_method(self):
-    print('-----------------------------------------')
+    res = self.head_bucket(Bucket='drayerbucket') # this operation checks to see if a bucket exists
+    #print(res) # head_bucket call is possible
 
-def add_custom_method(params, **kwargs):
+
+def add_custom_method(class_attributes, **kwargs):
     print('We can add methods to events!')
-    response = client.list_buckets() # call extra functionality
-    print(response)
-    if 'Bucket' not in params:
-        params['Bucket'] = 'new' # pass in parameters
+    class_attributes['my_method'] = custom_method
 
 
 
@@ -54,11 +49,21 @@ def add_custom_method(params, **kwargs):
     # if 'Bucket' not in class_attributes:
     #     class_attributes['Bucket'] = 'drayerbucket'
 
-registerEvent.register('provide-client-params.s3.ListObjects', add_custom_method)
+session = Session()
+session.events.register('creating-client-class.s3', add_custom_method)
 
 
 
-res = client.list_objects() # parameters passed in method
+client = session.client('s3', **cred_object)
+
+client.meta.method_to_api_mapping
+
+if client is None: 
+    print('Failed')
+
+registerEvent = client.meta.events
+
+res = client.my_method() # parameters passed in method
 # res = client.list_objects(Bucket='drayerbucket')
 print(res)
 
