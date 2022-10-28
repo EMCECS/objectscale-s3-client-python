@@ -7,6 +7,8 @@ import os
 
 from boto3.session import Session
 
+from botocore import BOTOCORE_ROOT
+
 urllib3.disable_warnings()
 
 
@@ -35,7 +37,7 @@ cred_object = {
 
 def custom_method(self):
     res = self.head_bucket(Bucket='drayerbucket') # this operation checks to see if a bucket exists
-    #print(res) # head_bucket call is possible
+    # print(res) # head_bucket call is possible
 
 
 def add_custom_method(class_attributes, **kwargs):
@@ -66,6 +68,17 @@ registerEvent = client.meta.events
 res = client.my_method() # parameters passed in method
 # res = client.list_objects(Bucket='drayerbucket')
 print(res)
+
+
+# res = client.GetBucketAcl()
+# print(res)
+
+res = client.ping()
+print(res)
+
+
+
+# client._create_api_method()
 
 # classAttr = {}
 
