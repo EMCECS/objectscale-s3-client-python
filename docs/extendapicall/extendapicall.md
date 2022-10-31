@@ -19,5 +19,28 @@ For this approach, the boto3 extensibility [document](https://boto3.amazonaws.co
     'creating-client-class.service-name'
 where service-name is the name of the service (s3)
 
-I'm doubtful that this solution would work as we are still not able to modify the createbucket call itself. 
+I'm doubtful that this solution would work as we are still not able to modify the createbucket call itself.
 
+# PROGRESS
+## 10/17 - 10/24 
+Minor progress. Setback due to family emergency.
+
+## 10/24 - 10/31
+- Custom parameters in the hook method?
+    - Can't pass in "new" parameters into client.create_bucket (i.e. client.create_bucket(Bucket='mybucket',    CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 'Tester' : 'I am being Tested')) )
+    - Look into CreateBucketConfiguration. 
+        - Able to add new parameters into CreateBucketConfiguration?
+        -   Scoured [boto3](https://github.com/boto/boto3) and [botocore](https://github.com/boto/botocore) github libraries and found nothing regarding CreateBucketConfiguration.
+        - Adding new parameters directly into CreateBucketConfiguration from client?
+            - Error:
+            botocore.exceptions.ParamValidationError: Parameter validation failed:
+            Unknown parameter in CreateBucketConfiguration: "Tester", must be one of: LocationConstraint  
+
+- Able to modify headers from hook method?
+    - Yes, we can modify headers. Shown in ExtendAPICallDemo.py
+    - Current: Check against ECS Testdrive. 
+        - Problem: Need to figure out how to format Metadata list
+        - Error: 
+        botocore.exceptions.ClientError: An error occurred (Invalid metadata search list entered) when calling the CreateBucket operation: A keyname on the request is not a valid indexable key, or the format of the request list is incorrect
+
+## 10/31 - 11/7
