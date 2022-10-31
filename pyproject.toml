@@ -8,21 +8,21 @@ version = "1.0.0"
 description = "Description of library"
 readme = "README.md"
 authors = [ "Drayer Sivertsen <drayer.sivertsen@wsu.edu>", "Nathan Marugame <nathan.marugame@wsu.edu>", "Killian Griffin <killian.griffin@wsu.edu>" ]
-license = { **License file** }
-classifiers = [ **List of classifiers** ]
-keywords = [ **List of keywords** ]
+license = { "LICENSE" }
+classifiers = [ 'Development Status :: 3 - Alpha',
+'Intended Audience :: Developers',
+'License :: OSI Approved :: Apache Software License',
+'Framework :: PyTest',
+'Natural Language :: English',
+'Programming Language :: Python :: 3.10',
+'Topic :: Software Development :: Libraries' ]
+keywords = [ 'ObjectScale', 'S3', 'Dell', 'boto3', 'botocore' ]
 requires-python = ">=3.9"
-dependencies = [ **List of necessary dependencies** ]
-# ">= version" specifies the lowest version needed for the package
-# "; python_version < version" specifies the dependency is only needed under a specified python version
+dependencies = [ 'boto3' ]
 
 
 [project.optional-dependencies]
-dev = [ **List of optional dependencies** ]
+dev = [ 'unittest', 'pytest' ]
 
 [project.urls]
 Homepage = "https://github.com/EMCECS/objectscale-s3-client-python"
-
-[project.scripts]
-<command_line_function> = <script call>
-...
