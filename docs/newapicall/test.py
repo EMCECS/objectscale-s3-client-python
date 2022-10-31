@@ -1,3 +1,4 @@
+from cgitb import reset
 import boto3
 import urllib3
 import botocore
@@ -41,7 +42,7 @@ def custom_method(self):
 
 
 def add_custom_method(class_attributes, **kwargs):
-    print('We can add methods to events!')
+    print('We can add methods to events!\n')
     class_attributes['my_method'] = custom_method
 
 
@@ -58,32 +59,36 @@ session.events.register('creating-client-class.s3', add_custom_method)
 
 client = session.client('s3', **cred_object)
 
-client.meta.method_to_api_mapping
+# client.meta.method_to_api_mapping
 
 if client is None: 
     print('Failed')
 
-registerEvent = client.meta.events
+# registerEvent = client.meta.events
 
 res = client.my_method() # parameters passed in method
 # res = client.list_objects(Bucket='drayerbucket')
-print(res)
-
-
-# res = client.GetBucketAcl()
+res = client.list_buckets()
 # print(res)
 
-res = client.ping()
+print('----------------------------------------------------------------')
+
+res = client.create_bucket(Bucket='new')
+print("Create Bucket Response Code: ")
 print(res)
 
+res = client.delete_bucket(Bucket='new')
+print("Delete Bucket Response Code: ")
+print(res['ResponseMetadata']['HTTPStatusCode'])
 
+res = client.list_buckets()
+# print(res)
 
-# client._create_api_method()
+print('----------------------------------------------------------------')
 
-# classAttr = {}
-
-# session = boto3.session.Session()
-# session.events.register('creating-client-class.s3', custom_method())
+res = client.ping()
+print('Ping Response Metadata:')
+print(res)
 
 
 

@@ -1,69 +1,66 @@
 # Adding a New API Call
 
+Adding an new API call can be done by utilizing the Botocore loader. Boto3 is built atop of library called Botocore, which is shared by the AWS CLI. Botocore holds the lower level implementation that Boto3 runs overtop of. By making model manipulations during the loading phase we have the ability to add new API calls and modify existing calls. 
 
-Adding an new API call can be performed by taking advantage of the boto3 event system. The boto3 event system allows users to register a function to a specific event. The function sits idle until the program reaches a line calling the event. Once the event is reached, all registered functions are called in the order they subscribed to the event. 
+When a client is instanciated in Boto3 modules are loaded defining the API requests made possible by Botocore. The modules include:
+* Service models (e.g. the mode for S3, and other services)
+* Service model extras which customize the service models
+* Other mdoels associated with a service (pagination, waiters)
+* Non service-specific config (Endpoint data, retry config)
 
-An registered function is called with keyword arguments. These arguments can be modified or returned to implement the functions purpose. 
+Loading a module is broken down into several steps:
+* Determining the path to load
+* Search the data_path for files to load
+* The mechanics of loading the file
+* Searching for extras a applying them to the loaded file
 
-The following is an example of an event shown on the boto3 documentation page:
-```
-import boto3
+Botocore loaders have the concept of data path exposed through AWS_DATA_PATH. This enables users to provide additional search paths where we will attempt to load models outside of the modesl we ship with botocore. When you create a loader, two paths are automatically added to the model search path:
+* botocore root>/data
+* ~/.aws/models
 
-s3 = boto3.client('s3')
+The first value is the path where all the model files shipped with
+botocore are located.
 
-# Access the event system on the S3 client
-event_system = s3.meta.events
+The second path is so that users can just drop new model files in
+``~/.aws/models`` without having to mess around with the AWS_DATA_PATH.
 
-# Create a function
-def add_my_bucket(params, **kwargs):
-    # Add the name of the bucket you want to default to.
-    if 'Bucket' not in params:
-        params['Bucket'] = 'mybucket'
+Directory Layout
+================
 
-# Register the function to an event
-event_system.register('provide-client-params.s3.ListObjects', add_my_bucket)
+The Loader expects a particular directory layout.  In order for any
+directory specified in AWS_DATA_PATH to be considered, it must have
+this structure for service models:
 
-response = s3.list_objects()
-```
-
-
-## Boto3 Specific Events
-Boto3 allows for functions to be registered to one of three event types. 
-
-* 'creating-client-class'
-* 'creating-resource-class'
-* 'providing-client-params
-
-
-### creating-client-class
-This event takes place when a client class is created for a service. When the first instantiation for the client class occurs the service for that client class is also created. 
-
-Use Case: adding methods to the client class
-
-### creating-resource-class
-This event occurs when a resouce class is created. After instantiation of the resource class this event can be used. 
-
-Use Case: adding methods to the resource class
-
-### provide-client-params
-This event is emmited before validation of the parameters passed to the client method. 
-
-Use Case: inject or modify parameters prior to the parameters being validated and built into a request
-
-----
+    <root>
+      |
+      |-- servicename1
+      |   |-- 2012-10-25
+      |       |-- service-2.json
+      |-- ec2
+      |   |-- 2014-01-01
+      |   |   |-- paginators-1.json
+      |   |   |-- service-2.json
+      |   |   |-- waiters-2.json
+      |   |-- 2015-03-01
+      |       |-- paginators-1.json
+      |       |-- service-2.json
+      |       |-- waiters-2.json
+      |       |-- service-2.sdk-extras.json
 
 
-Note: All events can also utilize inheritance from their respective classes (inheriting from the client or resource class).
+That is:
 
--------
+* The root directory contains sub directories that are the name
+    of the services.
+* Within each service directory, there's a sub directory for each
+    available API version.
+* Within each API version, there are model specific files, including (but not limited to): service-2.json, waiters-2.json, paginators-1.json
+
+Extras allows us to process two dictionaries, the base model used by the service and extras model which is passed in for merging. Botocore compares dictionary entries in extras and makes a deep merge if the key already exists, otherwise a new entry is created.
 
 ## Conclusion
+With extras as a botocore feature new API calls can be passed into the model during the loading phase. This provides the ability to make new API calls not originally part of Boto3 without making changes to the original API model. 
 
-By registering functions to events we gain the ability to call functions on top of the existing boto3 library services. We can also pass into functions custom parameters to support metadata fields needed in ObjectScale.
-
-This will allow us to extend the existing calls with no addition work by the user.
-
-The only other functionality for a complete new API call is where the new field is held!
 
 ## Important Terms
 Session: a session manages state about a particular configuration
@@ -83,6 +80,6 @@ How Signature Version 4 works
 
 References:
 
-https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+https://github.com/boto/botocore/blob/8967329dec98a23b4ebc0497c639010ae0e3ccc3/botocore/utils.py#L1479
 
 https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
