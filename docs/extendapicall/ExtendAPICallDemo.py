@@ -1,10 +1,11 @@
 import boto3
 import os
+# RUN CODE FROM DIRECTLY INSIDE FOLDER
 
 #CREDENTIALS
 cur_path = os.path.realpath(__file__)
 new_path = os.path.relpath('../../CREDS.txt', cur_path)
-
+#new_path = '/home/nathanmarugame/dell/project/CREDS.txt'
 file1 = open(new_path, 'r')
 
 cred_object = {}
@@ -12,6 +13,7 @@ cred_object['aws_access_key_id'] = file1.readline().strip()
 cred_object['aws_secret_access_key'] = file1.readline().strip()
 cred_object['endpoint_url'] = file1.readline().strip()
 # END CREDENTIALS
+
 
 # BEGIN API CODE
 s3 = boto3.client("s3", **cred_object)
@@ -30,13 +32,16 @@ def add_metadata_parameter(**kwargs):
     headers = parameters.get('headers')
 
     # Formatting Metadata search rquest field. list of dictionaries? 
+    # http://doc.isilon.com/ECS/3.6/DataAccessGuide/GUID-5E2A0B34-2FE5-498F-8627-C54C0681EEA7.html
     MDList = '[{"datatype":"integer","name":"x-amz-meta-custom"}]'
     MDList2 = 'keyname[;string]'
     MDList3 = 'x-amz-meta-custom[integer]'
 
     # Seeing if i can modify header field
-    #headers['x-emc-metadata-search'] = 'Metadata'
-    
+    #headers['x-emc-metadata-search'] ="Size,CreateTime"
+    headers['x-emc-metadata-search'] ="x-amz-meta-STR;String"
+    #headers['x-emc-metadata-search'] ="this won't work"
+
     #print((headers))
     print("END HOOK METHOD")
 
@@ -51,7 +56,7 @@ request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'Locati
 
 
 # PRINTING REQUESTS / RESPONSES 
-print("\n CREATE BUCKET REQUEST\n", request,"\n")
+print("\n CREATE BUCKET RESPONSE\n", request,"\n")
 response = s3.list_buckets()
 print(response)
 
