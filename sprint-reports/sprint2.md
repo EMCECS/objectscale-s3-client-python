@@ -1,4 +1,4 @@
-# Sprint x Report (8/26/21 - 9/24/2021)
+# Sprint 2 Report (10/09/22 - 11/09/2022)
 
 ## What's New (User Facing)
  * Proof of concept for extending api call
@@ -59,3 +59,5 @@ Here are changes we plan to implement in the next sprint:
    * Working hours spread out through week (1 hour a day)
 
 Link to sprint Kaizen: https://app.clickup.com/t/34htdg6
+
+Link to Sprint 2 Demo video: https://youtu.be/ETwf5DlvGZg 
