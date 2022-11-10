@@ -1,4 +1,4 @@
-# Extending an API Call (Adding metadata parameter to create bucket call)
+# Extending an API Call to boto3 (Adding metadata parameter to create bucket call)
 ## Possible Solution 1: Using boto3 events before-call handler
  The primary way one would add methods to an existing boto3 call would be through events. The reason being is that all resources and clients in boto3 are created at runtime. The extensibility [document](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/events.html) created by boto3 developers offers no clear way to extend and modify the create bucket function. 
  
@@ -43,9 +43,10 @@ Minor progress. Setback due to family emergency.
         - Error: 
         botocore.exceptions.ClientError: An error occurred (Invalid metadata search list entered) when calling the CreateBucket operation: A keyname on the request is not a valid indexable key, or the format of the request list is incorrect
         - ERROR FIXED AND TASK COMPLETED
+        - Seen in add_metadata_parameter
 
 ## 10/31 - 11/7
-- Custom parameters in the hook method? (Moved to Next Week)
+- Custom parameters in the hook method? (Completed)
     - Can't pass in "new" parameters into client.create_bucket (i.e. client.create_bucket(Bucket='mybucket',    CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 'Tester' : 'I am being Tested')) )
     - Look into CreateBucketConfiguration. 
         - Able to add new parameters into CreateBucketConfiguration?
@@ -55,3 +56,4 @@ Minor progress. Setback due to family emergency.
             botocore.exceptions.ParamValidationError: Parameter validation failed:
             Unknown parameter in CreateBucketConfiguration: "Tester", must be one of: LocationConstraint  
     - [DISCOVERY](https://github.com/EMCECS/objectscale-s3-client-python/blob/main/docs/newapicall/newapicall.md): Using botocore loaders and shape definitions, we should be able to extend existing createbucket calls.
+- Successfully able to add custom metadata parameter to createbucket call without breaking existing calls.
