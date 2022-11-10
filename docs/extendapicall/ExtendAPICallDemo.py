@@ -20,9 +20,11 @@ s3 = boto3.client("s3", **cred_object)
 # Access the event system on the S3 client
 event_system = s3.meta.events
 
+
+
 # Somehow modify the create bucket request parameters
 def add_metadata_parameter(**kwargs):
-    print("INSIDE ADD HOOK METHOD")
+    #print("INSIDE ADD HOOK METHOD")
 
     #getting params dict in kwargs
     parameters = kwargs.get('params')
@@ -34,17 +36,16 @@ def add_metadata_parameter(**kwargs):
     # http://doc.isilon.com/ECS/3.6/DataAccessGuide/GUID-5E2A0B34-2FE5-498F-8627-C54C0681EEA7.html
     # Must be specific format
     # Seeing if i can modify header field
-    #headers['x-emc-metadata-search'] ="Size,CreateTime"
     #headers['x-emc-metadata-search'] ="x-amz-meta-STR;String"
+    
     headers['x-emc-metadata-search'] = MetaDataString
 
-    #print((headers))
-    print("END ADD HOOK METHOD")
+    #print("END ADD HOOK METHOD")
 
 # Accessing parameters method
 def get_metadata_parameter(**kwargs):
 
-    print("INSIDE GET HOOK METHOD")
+    #print("INSIDE GET HOOK METHOD")
 
     # Checking if metadata field was entered
     parameters = kwargs.get('params')
@@ -54,7 +55,9 @@ def get_metadata_parameter(**kwargs):
         # Assign to global variable
         MetaDataString = parameters.get('MetaData')
 
-    print("END GET HOOK METHOD")
+    #print("END GET HOOK METHOD")
+
+
 
 #register events
 # Before call builds everything and is called just before request is sent
@@ -62,7 +65,7 @@ event_system.register('before-call.s3.CreateBucket', add_metadata_parameter)
 # Before parameter build is called before anything happens to the parameters input into the original request
 event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_parameter)
 
-# boto3 native createbucket call
+# boto3 extended createbucket call 
 request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={
     'LocationConstraint': 'us-west-2'}, MetaData='x-amz-meta-STR;String')
 
@@ -77,7 +80,7 @@ print(response)
 
 # Response after delete bucket
 response = s3.delete_bucket(Bucket = "mybucket")
-print("\n", response, "\n")
+#print("\n", response, "\n")
 
 # Double check to see if bucket deleted
 response = s3.list_buckets()
@@ -90,7 +93,9 @@ response = s3.create_bucket(Bucket='secondbucket', CreateBucketConfiguration={
     'LocationConstraint': 'us-west-2'})
 response = s3.list_buckets()
 print(response)
+
 s3.delete_bucket(Bucket="secondbucket")
+print("-------------DELETE BUCKET---------------------")
 response = s3.list_buckets()
 print(response)
 print("------------------")
