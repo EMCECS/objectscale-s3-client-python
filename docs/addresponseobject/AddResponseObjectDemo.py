@@ -26,14 +26,18 @@ file1 = open(new_path, 'r')
 cred_object = {}
 cred_object['aws_access_key_id'] = file1.readline().strip()
 cred_object['aws_secret_access_key'] = file1.readline().strip()
+
+
 cred_object['endpoint_url'] = file1.readline().strip()
 # END CREDENTIALS
 
 # BEGIN API CODE
 s3 = boto3.client("s3", **cred_object)
 
-res = s3.list_buckets()
-print(res)
+#response = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'} )
+#print(response, "\n")
+#s3.delete_bucket(Bucket = "mybucket")
 
-res = s3.ping()
+
+res = s3.ping(TestParameter="Tester")
 print(res)
