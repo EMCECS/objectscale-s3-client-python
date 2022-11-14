@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "PyscaleS3"
-version = "0.1.0"
+version = "0.0.1"
 uuid = "b7dcf645-a45a-4ce8-a23f-bd05af2689ab"
 description = "Open-source S3 client library in python to support Dells proprietary S3 extensions"
 readme = "README.md"
