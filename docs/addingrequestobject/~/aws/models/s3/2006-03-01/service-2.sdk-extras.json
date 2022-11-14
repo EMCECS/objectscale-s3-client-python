@@ -8,22 +8,23 @@
                     "requestUri":"/?ping",
                     "responseCode":200
                 },
-                "output":{"shape":"PingResponseShape"},
+                "input":{"shape":"PingRequestShape"},
                 "documentationUrl":"",
                 "documentation":""
             }
         },
         "shapes":{
-            "ResponseMemberShape":{
+            "TestParameterShape":{
                 "type":"string"
             },
-            "PingResponseShape":{
+            "PingRequestShape":{
                 "type":"structure",
+                "required":["TestParameter"],
                 "members":{
-                    "ResponseMember":{
-                        "shape":"ResponseMemberShape",
+                    "TestParameter":{
+                        "shape":"TestParameterShape",
                         "location":"header",
-                        "locationName":"Location"
+                        "locationName":"x-emc-metadata-search"
                     }
                 }
             }
