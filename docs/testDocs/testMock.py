@@ -1,10 +1,24 @@
+'''
+Copyright 2022 Dell Technologies. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file execpt in compliance with License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and
+limitations under the License.
+'''
+
 from unittest import mock
 import unittest
 import urllib3, os, sys
 
 from boto3.session import Session
-from botocore import exceptions
-from botocore import BOTOCORE_ROOT
 
 urllib3.disable_warnings()
 
@@ -30,6 +44,9 @@ cred_object = {
 def custom_method(self):
     print("custom_method entered")
     res = self.head_bucket(Bucket="new") # this operation checks to see if a bucket exists
+    print("res")
+    print("call list buckets")
+    self.list_buckets()
     # print(res) # head_bucket call is possible
 
 
@@ -38,40 +55,15 @@ def add_custom_method(class_attributes, **kwargs):
     class_attributes['my_method'] = custom_method
 
 class TestSession(unittest.TestCase):
-    #def setUp(self):
-        #self.session = Session()
-        #custom_method = mock.Mock()
-        #self.session.events.register('creating-client-class.s3', add_custom_method)
-        #session = mock.Mock()
-        #client = self.session.client('s3', **cred_object)
-        #client.my_method()
-        #client.create_bucket()
-        #client.delete_bucket()
-        #custom_method.assert_called()
-
     def testCustomMethodCalled(self):
         self.session = Session()
-        custom_method = mock.Mock()
-        print("register")
         self.session.events.register('creating-client-class.s3', add_custom_method)
-        print("client create")
-        client = self.session.client('s3', **cred_object)
-        print("create bucket call")
-        res = client.create_bucket(Bucket='new')
+        self.client = self.session.client('s3', **cred_object)
+        
+        res = self.client.create_bucket(Bucket='new')
         print("Create Bucket Response Code: ")
         print(res)
-        res = client.list_buckets()
-        print(res)
-        custom_method = mock.Mock()
-        try:
-            print("call client methods")
-            client.my_method()
-            client.create_bucket()
-            client.delete_bucket()
-        except exceptions.ClientError:
-            print("HeadBucket failed") 
-        custom_method.assert_called()
-
-#if __name__ == "__main__":
-#    test = TestSession()
-#    TestSession.testCustomMethodCalled(test)
+        self.client.list_buckets = mock.Mock()
+        self.client.my_method()
+        print("assert call")
+        self.client.list_buckets.assert_called()

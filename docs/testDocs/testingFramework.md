@@ -30,18 +30,6 @@ A few functional tests will need to be implemented to test the full use cases of
 
 ### Testing Implementation
 
-On observing the testing implementation for boto3, it appears to be beneficial to generate a botocore session before running a test suite. This provides a method of testing any functionalities without making any actual calls to botocore. This can be done through the use of the following method:
-
-`self.bc_session_patch = mock.patch('botocore.session.Session')`
-
-Initiating the session can be done with the following method:
-
-`self.bc_session_cls = self.bc_session_patch.start()`
-
-These calls should be done in a base class, from which each test should inherit. This should contain a SetUp function that can contain code that should be executed on all tests (like with the session implementation). A teardown method can contain the function for ending the session:
-
-`self.bc_session_patch.stop()`
-
 Individual portions of functionality can be organized into separate test classes. These classes can have their own SetUp and TearDown functions for the specific part of the code that they are testing. They can be defined as follows:
 
 `class SampleTestClass(unittest.TestCase)`
@@ -61,3 +49,13 @@ The parts of the tests that will be confirming functionality are the assert stat
 `self.assertEqual(<condition>)`
 
 They will throw assertion errors on a failure, which will be uset to tell if the test was successful. To customize the grouping of tests, one can use a test suite. A test suite can be instantiated as `unittest.TestSuite()` and tests can be added to the suite using the `suite.addTest()` method.
+
+On observing the testing implementation for boto3, it appears to be beneficial to use unittests Mock class to test how different methods have been used. To generate a mock object of a function or class, the following can be invoked:
+
+`object = mock.Mock()`
+
+The object will be converted to a mock object, where data of how the mock is used can be stored. As actions are performed with the mock object, data about these actions can be used in assertions, like the following assertion:
+
+`object.assert_called()`
+
+This assertion succeeds when the mock object has been called at least once. There are also assertions confirming the number of times the moack was called and the specific parameters with which they were called.
