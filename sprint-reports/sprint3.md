@@ -60,3 +60,6 @@ Here are changes we plan to implement in the next sprint:
    * Assignment of sprint lead role to team member
    * Stronger backlog refinement before spike assignment
    * During the week progress updates on spikes
+
+## Link to Demo Video
+https://youtu.be/vddi89RBfRo
