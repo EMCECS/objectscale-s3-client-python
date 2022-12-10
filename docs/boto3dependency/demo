@@ -1,0 +1,9 @@
+python3 -m venv test_venv
+
+source ./test_venv/bin/activate
+
+pip list
+
+pip install -i https://test.pypi.org/pypi/ --extra-index-url https://pypi.org/simple obs-s3-client
+
+pip list
