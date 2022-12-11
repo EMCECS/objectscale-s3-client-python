@@ -37,5 +37,5 @@ res = s3.ping(TestParameter='Hello')
 print(res)
 
 # This shouLd give an error based on our input shape
-res = s3.ping()
-print(res)
+#res = s3.ping()
+#print(res)
