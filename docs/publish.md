@@ -37,7 +37,7 @@ https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
 ### Configuration
 
-The build system and the package itself must be configured before the library is published. This is done through the use of a pyproject.toml file. The build system that will be used is setuptools, and in the file, this build configuration can be specified in the build-system section. It is best practice  to place the build directory into a file called /src. This section specifies what dependencies will be necessary for building the package.
+The build system and the package itself must be configured before the library is published. This is done through the use of a pyproject.toml file. The build system that will be used is setuptools, and in the file, this build configuration can be specified in the build-system section. It is best practice to place the build directory into a file called /src. This section specifies what dependencies will be necessary for building the package.
 
 To configure the package, the project section must assign values to various fields. Most of these fields are optional (all but name and version), but the rest are necessary to fill in for the purposes of the project. The library is more attractive and findable on PyPI with these fields filled in, and this in turn ensures maximal convienience for the clients.
 
