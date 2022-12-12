@@ -2,6 +2,39 @@
 
 Detailed here is the method by which this library extension will be published. The publishing repository that we will be using is PyPI, the open source Python packaging index. Publishing the library here will allow for availability amoung Dell's clients. This library will be called PyscaleS3. We will keep the package name and the name in PyPI the same for the sake of consistency. 
 
+## Publishing
+1. Make sure you have the latest version of pip
+Windows
+```
+py -m pip install --upgrade pip
+```
+MACOS/Linux
+```
+python3 -m pip install upgrade pip
+```
+2. Running the build
+Make sure your build tool is up to date
+
+Windows
+```
+py -m pip install --upgrade build
+```
+MACOS/Linux
+```
+python3 -m pip install --upgrade build
+```
+
+Create the build
+```
+py -m build
+```
+
+The rest of publishing can be followed at:
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+---
+
+
 ### Configuration
 
 The build system and the package itself must be configured before the library is published. This is done through the use of a pyproject.toml file. The build system that will be used is setuptools, and in the file, this build configuration can be specified in the build-system section. It is best practice to place the build directory into a file called /src. This section specifies what dependencies will be necessary for building the package.

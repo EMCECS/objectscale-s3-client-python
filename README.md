@@ -11,11 +11,13 @@ The library takes existing S3 API calls designed for boto3 and implements new se
 
 ## Installation
 
-The library will be accessible through PyPI. As the publication stage of the project progresses, this section will be changed with installation instructions.
+The library will be accessible through PyPI. Project information can be seen here:
+
+<project PyPI link>
 
 ### Prerequisites
 
-TODO: List what a user needs to have installed before running the installation instructions below (e.g., git, which versions of Ruby/Rails)
+Python is neccessary to have installed before using the library. The project will function with Python versions past Python 3.9. If the user wants to contribute to the project, Git will also be neccessary 
 
 ### Add-ons
 
@@ -23,9 +25,9 @@ TODO: List which add-ons are included in the project, and the purpose each add-o
 
 ### Installation Steps
 
-TODO: Describe the installation process (making sure you mention `bundle install`).
-Instructions need to be such that a user can just copy/paste the commands to get things set up and running. 
+The package can be installed through pip, which comes with the installation of Python. Installation of the package can be done by simply executing the following command:
 
+`pip install PyscaleS3`
 
 ## Functionality
 
@@ -45,15 +47,14 @@ Provide steps to reproduce the problem and/or name a file or a function where th
 
 ## Contributing
 
-As the product is being developed, this section will be updated with more specific contribution info.
+Contributions to the project are welcomed. Outline of steps for contributions are given below:
 
-TODO: Leave the steps below if you want others to contribute to your project.
+1. Create a new GitHub issue or find one to work on
+2. Assign the issue to yourself
+3. Fork project, make changes, get reviewed by Dell project maintainer
+4. DCO sign off
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+Additional details for these requirements can be found in the `CONTRIBUTING.md` file in the project repository.
 
 ## Additional Documentation
 
@@ -65,5 +66,4 @@ TODO: Provide links to additional documentation that may exist in the repo, e.g.
 
 ## License
 
-If you haven't already, add a file called `LICENSE.txt` with the text of the appropriate license.
-We recommend using the MIT license: <https://choosealicense.com/licenses/mit/>
+This project uses the Apache License. The license can be viewed in the `LICENSE` file in the project repository.

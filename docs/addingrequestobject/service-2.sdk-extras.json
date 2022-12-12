@@ -1,0 +1,33 @@
+{   
+    "merge":{
+        "operations":{
+            "Ping":{
+                "name":"Ping",
+                "http":{
+                    "method":"GET",
+                    "requestUri":"/?ping",
+                    "responseCode":200
+                },
+                "input":{"shape":"PingRequestShape"},
+                "documentationUrl":"",
+                "documentation":""
+            }
+        },
+        "shapes":{
+            "TestParameterShape":{
+                "type":"string"
+            },
+            "PingRequestShape":{
+                "type":"structure",
+                "required":["TestParameter"],
+                "members":{
+                    "TestParameter":{
+                        "shape":"TestParameterShape",
+                        "location":"header",
+                        "locationName":"x-emc-metadata-search"
+                    }
+                }
+            }
+        }
+    }
+}
