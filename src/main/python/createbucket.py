@@ -58,10 +58,10 @@ def get_metadata_parameter(**kwargs):
 
     # Checking if metadata field was entered
     parameters = kwargs.get('params')
-    if 'MetaData' in parameters:
+    if 'SearchMetaData' in parameters:
         global MetaDataString # Holds metadata string parameter
         
-        MetaDataString = parameters.get('MetaData') # Assign to global variable
+        MetaDataString = parameters.get('SearchMetaData') # Assign to global variable
 
 
 # modify the create bucket request parameters
@@ -84,22 +84,20 @@ event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_par
 
 # boto3 extended createbucket call 
 request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-    MetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+    SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
 
-# PRINTING REQUESTS / RESPONSES 
+# PRINTING REQUESTS / RESPONSES
 print("\n CREATE BUCKET RESPONSE\n", request,"\n")
 response = s3.list_buckets()
 print(response)
 
 # Response after delete bucket
 response = s3.delete_bucket(Bucket = "mybucket")
-#print("\n", response, "\n")
 
 # Double check to see if bucket deleted
 response = s3.list_buckets()
 print(response)
-print("\n")
 
 # # Checking to make sure existing calls aren't broken
 # print("------------------")
