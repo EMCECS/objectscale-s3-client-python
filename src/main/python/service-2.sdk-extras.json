@@ -1,0 +1,19 @@
+{   
+    "merge":{
+        "shapes":{
+            "MetaData":{
+              "type":"string"
+          },
+          "CreateBucketRequest":{
+              "members":{
+                "MetaData":{
+                  "shape":"MetaData",
+                  "documentation":"<p>MetaData used for the ECS metadata search operation.<p>",
+                  "location":"header",
+                  "locationName":"x-emc-metadata-search"
+          }
+        }
+      }
+    }
+  }
+}
