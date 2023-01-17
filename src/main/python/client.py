@@ -1,3 +1,5 @@
+from boto3.session import Session
+
 '''
 Copyright 2022 Dell Technologies. All Rights Reserved.
 
@@ -46,41 +48,52 @@ cred_object = {
     "verify": False
 }
 
-s3 = boto3.client("s3", **cred_object)
 
 
-event_system = s3.meta.events # Access the event system on the S3 client
+class MyClass(boto3):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        print('Resource instantiated!')
 
-# Accessing parameters method
-def get_metadata_parameter(**kwargs):
+        event_system = s3.meta.events # Access the event system on the S3 client
 
-    #print("INSIDE GET HOOK METHOD")
+        # Accessing parameters method
+        def get_metadata_parameter(**kwargs):
 
-    # Checking if metadata field was entered
-    parameters = kwargs.get('params')
-    if 'SearchMetaData' in parameters:
-        global MetaDataString # Holds metadata string parameter
-        
-        MetaDataString = parameters.get('SearchMetaData') # Assign to global variable
+            #print("INSIDE GET HOOK METHOD")
 
-
-# modify the create bucket request parameters
-def add_metadata_parameter(**kwargs):
-    parameters = kwargs.get('params') # get params dict in kwargs
-
-    headers = parameters.get('headers') # get headers field
-
-    # Formatting Metadata search request field.
-    # http://doc.isilon.com/ECS/3.6/DataAccessGuide/GUID-5E2A0B34-2FE5-498F-8627-C54C0681EEA7.html
-    # Must be specific format
-    
-    headers['x-emc-metadata-search'] = MetaDataString
+            # Checking if metadata field was entered
+            parameters = kwargs.get('params')
+            if 'SearchMetaData' in parameters:
+                global MetaDataString # Holds metadata string parameter
+                
+                MetaDataString = parameters.get('SearchMetaData') # Assign to global variable
 
 
-#register events
-event_system.register('before-call.s3.CreateBucket', add_metadata_parameter) # Before call builds everything and is called just before request is sent
+        # modify the create bucket request parameters
+        def add_metadata_parameter(**kwargs):
+            parameters = kwargs.get('params') # get params dict in kwargs
 
-event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_parameter) # Before parameter build is called before anything happens to the parameters input into the original request
+            headers = parameters.get('headers') # get headers field
+
+            # Formatting Metadata search request field.
+            # http://doc.isilon.com/ECS/3.6/DataAccessGuide/GUID-5E2A0B34-2FE5-498F-8627-C54C0681EEA7.html
+            # Must be specific format
+            
+            headers['x-emc-metadata-search'] = MetaDataString
+
+
+        #register events
+        event_system.register('before-call.s3.CreateBucket', add_metadata_parameter) # Before call builds everything and is called just before request is sent
+
+        event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_parameter) # Before parameter build is called before anything happens to the parameters input into the original request
+
+
+
+
+
+
+s3 = MyClass.client("s3", **cred_object)
 
 # boto3 extended createbucket call 
 request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
