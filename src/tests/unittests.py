@@ -43,11 +43,17 @@ cred_object = {
     "verify": False
 }
 
-s3 = boto3.client("s3", **cred_object)
+class CreatBucketTests(unittest.TestCase):
+# boto3 extended createbucket call
+ def testCreateBucketCalled(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
 
-class TestSession(unittest.TestCase):
-# boto3 extended createbucket call 
-    assert s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        self.client.create_bucket = mock.Mock()
+        
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
         MetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+        self.client.create_bucket.assert_called()
 
 
