@@ -1,8 +1,11 @@
-# Creation of a client with all registered events using objecscale library import
+# Creation of a client with all registered events using objectscale library import
 ## General idea
-Register method A to the ObjectScale Class. 
-Within method A and using boto3, create a client X and register all necessary events to X. 
-Return client X with all registered events at the end of the method. 
+Define method A into a defined module.
+Use method A to return modified client. 
+Modified client is then able to perform objectscale tasks.
 
 E.g 
-client = ObjectScale.create_objscale_client(name, cred)
+client = create_objectscale_s3_client( cred)
+
+## Will it work?
+Yes, it will work as the modified client is able to run the events, access parameters, and modify the headers all the same
