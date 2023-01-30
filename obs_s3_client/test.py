@@ -26,7 +26,7 @@ urllib3.disable_warnings()
 
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-rel_path = '../../../creds.txt'
+rel_path = '../../../../creds.txt'
 abs_file_path = os.path.join(script_dir, rel_path)
 
 with open(abs_file_path) as file:
@@ -43,17 +43,15 @@ cred_object = {
     "verify": False
 }
 
-class CreatBucketTests(unittest.TestCase):
-# boto3 extended createbucket call
- def testCreateBucketCalled(self):
-        self.session = Session()
-        self.client = self.session.client('s3', **cred_object)
 
-        self.client.create_bucket = mock.Mock()
-        
-        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+session = Session()
+client = session.client('s3', **cred_object)
 
-        self.client.create_bucket.assert_called()
+client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+res = client.searchmetdata(Bucket='mybucket')
+print(res)
+
 
 

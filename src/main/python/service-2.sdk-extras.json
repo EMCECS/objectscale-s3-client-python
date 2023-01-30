@@ -1,0 +1,56 @@
+{   
+    "merge":{
+        "operations":{
+            "GetSearchMetadata":{
+                "name":"Ping",
+                "http":{
+                    "method":"GET",
+                    "requestUri":"{Bucket}/?searchmetadata",
+                    "responseCode":200
+                },
+                "input":{"shape":"GetSearchMetadataRequest"},
+                "output":{"shape":"GetSearchMetadataOutput"},
+                "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":""
+            }
+        },
+        "shapes":{
+            "SearchMetaData":{
+              "type":"string"
+            },
+            "CreateBucketRequest":{
+                "members":{
+                    "SearchMetaData":{
+                    "shape":"SearchMetaData",
+                    "documentation":"<p>Search metaData used for the ECS metadata search operation.<p>",
+                    "location":"header",
+                    "locationName":"x-emc-metadata-search"
+                    }
+                }
+            },
+            "GetSearchMetadataRequest":{
+                "type":"structure",
+                "required":["Bucket"],
+                "members":{
+                  "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>Specifies the S3 bucket whose metadata is being requested.</p>",
+                    "contextParam":{"name":"Bucket"},
+                    "location":"uri",
+                    "locationName":"Bucket"
+                  }
+                }
+            },
+            "GetSearchMetadataOutput":{
+                "type":"structure",
+                "members":{
+                    "ResponseMember":{
+                        "shape":"ResponseMemberShape",
+                        "location":"header",
+                        "locationName":"date"
+                    }
+                }
+            }
+        }
+    }
+}
