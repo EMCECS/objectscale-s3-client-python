@@ -28,3 +28,5 @@ Please review the publishPyPi.md file for instructions on how to publish the lib
 ## 6: Release Notes
 Create a relase notes markdown document with the version number for the file name (e.g. 0-1-2.md for version 0.1.2) under the docs/releasenotes directory. 
 
+## 7: Creating a release on github
+Follow the process in this [guide](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release) for creating a release and version tag on Github. 
