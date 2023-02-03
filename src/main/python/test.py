@@ -50,7 +50,7 @@ client = session.client('s3', **cred_object)
 client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
 SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
-res = client.searchmetdata(Bucket='mybucket')
+res = client.searchmetadata(Bucket='mybucket')
 print(res)
 
 
