@@ -47,11 +47,14 @@ cred_object = {
 session = Session()
 client = session.client('s3', **cred_object)
 
-client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+res = client.list_buckets()
 
-res = client.searchmetadata(Bucket='mybucket')
 print(res)
+
+# client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+# res = client.searchmetadata(Bucket='mybucket')
+# print(res)
 
 
 
