@@ -44,13 +44,43 @@
             "GetSearchMetadataOutput":{
                 "type":"structure",
                 "members":{
-                    "ResponseMember":{
-                        "shape":"ResponseMemberShape",
-                        "location":"header",
-                        "locationName":"date"
+                    "MetadataSearchList":{
+                        "shape":"MetadataSearchList"
                     }
                 }
-            }
+            },
+            "MetadataSearchList":{
+                "type":"structure",
+                "members":{
+                    "IndexableKeys":{
+                        "shape":"IndexableKeys",
+                        "documentation":"<p>A list of metadata keys being used for searches.</p>"
+                    }
+                }
+            },
+            "IndexableKeys":{
+                "type":"structure",
+                "members":{
+                    "Key":{
+                        "shape":"Key"
+                    }
+                }
+            },
+            "Key":{
+                "type":"structure",
+                "members":{
+                    "Name":{
+                        "shape":"Name",
+                        "documentation":"<p>Name of the metadata key.</p>"
+                    },
+                    "Datatype":{
+                        "shape":"Datatype",
+                        "documentation":"<p>Data type of the key.</p>"
+                    }
+                }
+            },
+            "Name":{"type":"string"},
+            "Datatype":{"type":"string"}
         }
     }
 }
