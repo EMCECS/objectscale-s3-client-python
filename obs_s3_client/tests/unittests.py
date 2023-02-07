@@ -57,7 +57,7 @@ class CreateBucketTests(unittest.TestCase):
         self.client.create_bucket.assert_called()
 
 class GetSearchMetadataTests(unittest.TestCase):
- def GetSearchMetadataResult(self):
+ def testGetSearchMetadataResult(self):
         self.session = Session()
         self.client = self.session.client('s3', **cred_object)
         
