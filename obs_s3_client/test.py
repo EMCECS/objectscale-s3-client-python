@@ -55,8 +55,13 @@ res = client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'Locati
 res = client.get_bucket_acl(Bucket='mybucket')
 # print(res)
 
+# boto3.set_stream_logger('')
+
+
 res = client.get_search_metadata(Bucket='mybucket')
-print(res)
+print(res['IndexableKeys'])
+
+# client.delete_bucket(Bucket='mybucket')
 
 
 
