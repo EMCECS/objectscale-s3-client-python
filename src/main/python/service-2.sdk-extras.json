@@ -2,7 +2,7 @@
     "merge":{
         "operations":{
             "GetSearchMetadata":{
-                "name":"Ping",
+                "name":"GetSearchMetadata",
                 "http":{
                     "method":"GET",
                     "requestUri":"{Bucket}/?searchmetadata",
@@ -15,9 +15,6 @@
             }
         },
         "shapes":{
-            "SearchMetaData":{
-              "type":"string"
-            },
             "CreateBucketRequest":{
                 "members":{
                     "SearchMetaData":{
@@ -28,6 +25,7 @@
                     }
                 }
             },
+            "SearchMetaData":{"type":"string"},
             "GetSearchMetadataRequest":{
                 "type":"structure",
                 "required":["Bucket"],
@@ -44,26 +42,18 @@
             "GetSearchMetadataOutput":{
                 "type":"structure",
                 "members":{
-                    "MetadataSearchList":{
-                        "shape":"MetadataSearchList"
-                    }
-                }
-            },
-            "MetadataSearchList":{
-                "type":"structure",
-                "members":{
                     "IndexableKeys":{
-                        "shape":"IndexableKeys",
-                        "documentation":"<p>A list of metadata keys being used for searches.</p>"
+                        "shape":"IndexableKeys"
+                    },
+                    "OptionalAttributes":{
+                        "shape":"OptionalAttributes"
                     }
                 }
             },
             "IndexableKeys":{
-                "type":"structure",
-                "members":{
-                    "Key":{
-                        "shape":"Key"
-                    }
+                "type":"list",
+                "member":{
+                    "shape":"Key"
                 }
             },
             "Key":{
@@ -80,7 +70,28 @@
                 }
             },
             "Name":{"type":"string"},
-            "Datatype":{"type":"string"}
+            "Datatype":{"type":"string"},
+            "OptionalAttributes":{
+                "type":"list",
+                "member":{
+                    "shape":"Attribute"
+                }
+            },
+            "Attribute":{
+                "type":"structure",
+                "members":{
+                    "Name":{
+                        "shape":"AttributeName",
+                        "documentation":"<p>Name of the metadata key.</p>"
+                    },
+                    "Datatype":{
+                        "shape":"AttributeDatatype",
+                        "documentation":"<p>Data type of the key.</p>"
+                    }
+                }
+            },
+            "AttributeName":{"type":"string"},
+            "AttributeDatatype":{"type":"string"}
         }
     }
 }
