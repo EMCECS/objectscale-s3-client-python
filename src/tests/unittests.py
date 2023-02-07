@@ -43,7 +43,7 @@ cred_object = {
     "verify": False
 }
 
-class CreatBucketTests(unittest.TestCase):
+class CreateBucketTests(unittest.TestCase):
 # boto3 extended createbucket call
  def testCreateBucketCalled(self):
         self.session = Session()
@@ -52,8 +52,20 @@ class CreatBucketTests(unittest.TestCase):
         self.client.create_bucket = mock.Mock()
         
         self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-        MetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
         self.client.create_bucket.assert_called()
+
+class GetSearchMetadataTests(unittest.TestCase):
+ def testGetSearchMetadataResult(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+        
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+        res = self.client.get_search_metadata(Bucket='mybucket')
+        self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
+
 
 
