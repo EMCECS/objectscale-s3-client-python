@@ -12,6 +12,18 @@
                 "output":{"shape":"GetSearchMetadataOutput"},
                 "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
                 "documentation":""
+            },
+        
+            "DisableMetadataSearch":{
+                "name":"DisableMetadataSearch",
+                "http":{
+                    "method":"DELETE",
+                    "requestUri":"/{Bucket}?searchmetadata",
+                    "responseCode":204
+                },
+                "input":{"shape":"DisableMetadataSearchRequest"},
+                "documentationUrl":"",
+                "documentation":""
             }
         },
         "shapes":{
@@ -91,7 +103,19 @@
                 }
             },
             "AttributeName":{"type":"string"},
-            "AttributeDatatype":{"type":"string"}
+            "AttributeDatatype":{"type":"string"},
+            "DisableMetadataSearchRequest":{
+                "type":"structure",
+                "required":["Bucket"],
+                "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "contextParam":{"name":"Bucket"},
+                    "location":"uri",
+                    "locationName":"Bucket"
+                    }
+                }
+            }
         }
     }
 }

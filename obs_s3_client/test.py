@@ -61,6 +61,9 @@ res = client.get_bucket_acl(Bucket='mybucket')
 res = client.get_search_metadata(Bucket='mybucket')
 print(res['IndexableKeys'])
 
+res = client.disable_metadata_search(Bucket='mybucket')
+print(res['ResponseMetadata']['HTTPStatusCode'])
+
 # client.delete_bucket(Bucket='mybucket')
 
 
