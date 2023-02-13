@@ -67,5 +67,29 @@ class GetSearchMetadataTests(unittest.TestCase):
         res = self.client.get_search_metadata(Bucket='mybucket')
         self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
 
+# should be failing as of 2/12/23
+# Might be a bug regarding server
+class DisableMetadataSearchTests(unittest.TestCase):
+ def testDisableMetadataSearch(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+        
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+        # Testing get call
+        res = self.client.get_search_metadata(Bucket='mybucket')
+        self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
+
+        # Test disable call return code = 204
+        res = self.client.disable_metadata_search(Bucket='mybucket')
+        self.assertEqual(204, res['ResponseMetadata']['HTTPStatusCode'])
+
+        # Testing get call again
+        # Shouldn't return anything if disabled!!
+        res = self.client.get_search_metadata(Bucket='mybucket')
+        self.assertEqual(res.get('IndexableKeys', None), None)
+
+
 
 
