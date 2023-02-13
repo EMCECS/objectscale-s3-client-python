@@ -22,9 +22,7 @@
                 "type":"structure",
                 "members":{
                     "ResponseMember":{
-                        "shape":"ResponseMemberShape",
-                        "location":"header",
-                        "locationName":"date"
+                        "shape":"ResponseMemberShape"
                     }
                 }
             },
