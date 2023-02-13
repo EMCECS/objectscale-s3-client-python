@@ -13,7 +13,6 @@
                 "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
                 "documentation":""
             },
-        
             "DisableMetadataSearch":{
                 "name":"DisableMetadataSearch",
                 "http":{
@@ -24,6 +23,17 @@
                 "input":{"shape":"DisableMetadataSearchRequest"},
                 "documentationUrl":"",
                 "documentation":""
+            },
+            "GetSystemMetadata":{
+                "name":"GetSystemMetadata",
+                "http":{
+                    "method":"GET",
+                    "requestUri":"?searchmetadata",
+                    "responseCode":200
+                },
+                "output":{"shape":"GetSystemMetadataSearchOutput"},
+                "documentationUrl":"http://doc.isilon.com/ECS/3.6/API/S3MetadataKeySystemListOperation_getSystemMetadataSearchKeys_7ba1e5f7a43a947638866ea460e03c53_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":"<p>Returns the list of system metadata keys that are available for assigning to a bucket.<p>"
             }
         },
         "shapes":{
@@ -52,6 +62,17 @@
                 }
             },
             "GetSearchMetadataOutput":{
+                "type":"structure",
+                "members":{
+                    "IndexableKeys":{
+                        "shape":"IndexableKeys"
+                    },
+                    "OptionalAttributes":{
+                        "shape":"OptionalAttributes"
+                    }
+                }
+            },
+            "GetSystemMetadataSearchOutput":{
                 "type":"structure",
                 "members":{
                     "IndexableKeys":{
