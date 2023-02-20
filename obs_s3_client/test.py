@@ -58,7 +58,7 @@ res = client.create_bucket(Bucket='ourbucket', CreateBucketConfiguration={'Locat
 # res = client.get_bucket_acl(Bucket='mybucket')
 # print(res)
 
-boto3.set_stream_logger('')
+# boto3.set_stream_logger('')
 
 
 res = client.get_system_metadata()
