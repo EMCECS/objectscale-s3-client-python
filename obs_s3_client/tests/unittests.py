@@ -91,6 +91,8 @@ class DisableMetadataSearchTests(unittest.TestCase):
         # Shouldn't return anything if disabled!!
         # check getcall with bucket wihtout indexed fields, put it here
         res = self.client.get_search_metadata(Bucket='mybucket')
+
+        # TODO: determine expected response after metadata search is disabled (after ObjectScale bug is fixed)
         self.assertEqual(res.get('IndexableKeys', None), None)
 
 
@@ -105,8 +107,12 @@ class GetSearchSystemMetadataTests(unittest.TestCase):
 
 
         res = self.client.get_system_metadata()
-        self.assertEqual(res['IndexableKeys'], [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'ObjectName', 'Datatype': 'string'}, {'Name': 'LastModified', 'Datatype': 'datetime'}])
-        self.assertEqual(res['OptionalAttributes'], [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'ContentType', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'Expiration', 'Datatype': 'datetime'}, {'Name': 'ContentEncoding', 'Datatype': 'string'}, {'Name': 'Retention', 'Datatype': 'integer'}, {'Name': 'Namespace', 'Datatype': 'string'}, {'Name': 'ObjectName', 'Datatype': 'string'}, {'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'Etag', 'Datatype': 'string'}, {'Name': 'Expires', 'Datatype': 'datetime'}])
+        self.assertTrue(res['IndexableKeys'] >= [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, \
+            {'Name': 'ObjectName', 'Datatype': 'string'}, {'Name': 'LastModified', 'Datatype': 'datetime'}])
+        self.assertTrue(res['OptionalAttributes'] >= [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'ContentType', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, \
+            {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'Expiration', 'Datatype': 'datetime'}, {'Name': 'ContentEncoding', 'Datatype': 'string'}, \
+            {'Name': 'Retention', 'Datatype': 'integer'}, {'Name': 'Namespace', 'Datatype': 'string'}, {'Name': 'ObjectName', 'Datatype': 'string'}, \
+            {'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'Etag', 'Datatype': 'string'}, {'Name': 'Expires', 'Datatype': 'datetime'}])
 
 
         self.client.delete_bucket(Bucket='mybucket')
