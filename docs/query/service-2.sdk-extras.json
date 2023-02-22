@@ -151,8 +151,69 @@
       },
       "Query":{
         "type":"string"
-      }
+      },
 
+      "QueryResponse":{
+        "type":"structure",
+        "members":{
+          "Name":{
+            "shape":"BucketName"
+          },
+          "NextMarker":{
+            "shape":"NextMarker"
+          },
+          "IsTruncated":{
+            "shape":"IsTruncated"
+          },
+          "MaxKeys":{
+            "shape":"MaxKeys"
+          },
+          "ObjectMatches":{
+            "shape":"ObjectMatches"
+          },
+          "CommonPrefixMatches":{
+            "shape":"CommonPrefixMatches"
+          }
+        }
+      },
+      "NextMarker":{
+        "type":"string"
+      },
+      "ObjectMatches":{
+        "type":"list",
+        "member":{
+          "shape":"object"
+        }
+      },
+      "object":{
+        "type":"structure",
+        "members":{
+          "objectName":{
+            "shape":"objectName"
+          },
+          "objectId":{
+            "shape":"objectId"
+          },
+          "versionId":{
+            "shape":"versionId"
+          },
+          "objectOwnerZone":{
+            "shape":"objectOwnerZone"
+          },
+          "queryMds":{
+            "shape":"queryMds"
+          },
+          "queryBinaryMds":{
+            "shape":"queryBinaryMds"
+          },
+          "indexKey":{
+            "shape":"indexKey"
+          },
+          "isFanoutObject":{
+            "shape":"isFanoutObject"
+          }
+        }
+      }
 
     }
   }
