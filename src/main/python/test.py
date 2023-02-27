@@ -52,19 +52,27 @@ client = session.client('s3', **cred_object)
 
 res = client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
-res = client.get_bucket_acl(Bucket='mybucket')
+res = client.create_bucket(Bucket='ourbucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+
+# res = client.get_bucket_acl(Bucket='mybucket')
 # print(res)
 
 # boto3.set_stream_logger('')
 
 
-res = client.get_search_metadata(Bucket='mybucket')
-print(res['IndexableKeys'])
+res = client.get_system_metadata()
+print(res)
 
-res = client.disable_metadata_search(Bucket='mybucket')
-print(res['ResponseMetadata']['HTTPStatusCode'])
+# res = client.get_search_metadata(Bucket='mybucket')
+# print(res['IndexableKeys'])
 
-# client.delete_bucket(Bucket='mybucket')
+# res = client.disable_metadata_search(Bucket='mybucket')
+# print(res['ResponseMetadata']['HTTPStatusCode'])
+
+client.delete_bucket(Bucket='mybucket')
+client.delete_bucket(Bucket='ourbucket')
+
 
 
 
