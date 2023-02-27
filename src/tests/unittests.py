@@ -73,6 +73,8 @@ class DisableMetadataSearchTests(unittest.TestCase):
  def testDisableMetadataSearch(self):
         self.session = Session()
         self.client = self.session.client('s3', **cred_object)
+
+        boto3.set_stream_logger('')
         
         self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
         SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
@@ -87,6 +89,7 @@ class DisableMetadataSearchTests(unittest.TestCase):
 
         # Testing get call again
         # Shouldn't return anything if disabled!!
+        # check getcall with bucket wihtout indexed fields, put it here
         res = self.client.get_search_metadata(Bucket='mybucket')
         self.assertEqual(res.get('IndexableKeys', None), None)
 
