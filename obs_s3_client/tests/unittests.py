@@ -43,7 +43,7 @@ cred_object = {
     "verify": False
 }
 
-class CreatBucketTests(unittest.TestCase):
+class CreateBucketTests(unittest.TestCase):
 # boto3 extended createbucket call
  def testCreateBucketCalled(self):
         self.session = Session()
@@ -52,8 +52,68 @@ class CreatBucketTests(unittest.TestCase):
         self.client.create_bucket = mock.Mock()
         
         self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-        MetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
         self.client.create_bucket.assert_called()
 
+class GetSearchMetadataTests(unittest.TestCase):
+ def testGetSearchMetadataResult(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+        
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
+        res = self.client.get_search_metadata(Bucket='mybucket')
+        self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
+
+# should be failing as of 2/12/23
+# Might be a bug regarding server
+class DisableMetadataSearchTests(unittest.TestCase):
+ def testDisableMetadataSearch(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+
+        boto3.set_stream_logger('')
+        
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+        # Testing get call
+        res = self.client.get_search_metadata(Bucket='mybucket')
+        self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
+
+        # Test disable call return code = 204
+        res = self.client.disable_metadata_search(Bucket='mybucket')
+        self.assertEqual(204, res['ResponseMetadata']['HTTPStatusCode'])
+
+        # Testing get call again
+        # Shouldn't return anything if disabled!!
+        # check getcall with bucket wihtout indexed fields, put it here
+        res = self.client.get_search_metadata(Bucket='mybucket')
+
+        # TODO: determine expected response after metadata search is disabled (after ObjectScale bug is fixed)
+        self.assertEqual(res.get('IndexableKeys', None), None)
+
+
+class GetSearchSystemMetadataTests(unittest.TestCase):
+ def testGetSystemMetadataResult(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+        
+        res = self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+        res = self.client.create_bucket(Bucket='ourbucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+
+
+        res = self.client.get_system_metadata()
+        self.assertTrue(res['IndexableKeys'] >= [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, \
+            {'Name': 'ObjectName', 'Datatype': 'string'}, {'Name': 'LastModified', 'Datatype': 'datetime'}])
+        self.assertTrue(res['OptionalAttributes'] >= [{'Name': 'Owner', 'Datatype': 'string'}, {'Name': 'ContentType', 'Datatype': 'string'}, {'Name': 'Size', 'Datatype': 'integer'}, \
+            {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'Expiration', 'Datatype': 'datetime'}, {'Name': 'ContentEncoding', 'Datatype': 'string'}, \
+            {'Name': 'Retention', 'Datatype': 'integer'}, {'Name': 'Namespace', 'Datatype': 'string'}, {'Name': 'ObjectName', 'Datatype': 'string'}, \
+            {'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'Etag', 'Datatype': 'string'}, {'Name': 'Expires', 'Datatype': 'datetime'}])
+
+
+        self.client.delete_bucket(Bucket='mybucket')
+        self.client.delete_bucket(Bucket='ourbucket')

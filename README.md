@@ -17,11 +17,7 @@ The library will be accessible through PyPI. Project information can be seen her
 
 ### Prerequisites
 
-Python is neccessary to have installed before using the library. The project will function with Python versions past Python 3.9. If the user wants to contribute to the project, Git will also be neccessary 
-
-### Add-ons
-
-TODO: List which add-ons are included in the project, and the purpose each add-on serves in your app.
+Python is neccessary to have installed before using the library. The project will function with Python versions past Python 3.9. If the user wants to contribute to the project, Git will also be neccessary. As this library extends the existing boto3 and botocore libraries, these are also necessary prerequisites.
 
 ### Installation Steps
 
@@ -58,11 +54,7 @@ Additional details for these requirements can be found in the `CONTRIBUTING.md` 
 
 ## Additional Documentation
 
-When the method of documentation hosting is decided, this section will be updated with links to the documentation.
-
-TODO: Provide links to additional documentation that may exist in the repo, e.g.,
-  * Sprint reports
-  * User links
+The documentation module PyDoc was used for documenting the code. This documentation can be accessed through the earlier linked github code.
 
 ## License
 
