@@ -74,7 +74,7 @@ class DisableMetadataSearchTests(unittest.TestCase):
         self.session = Session()
         self.client = self.session.client('s3', **cred_object)
 
-        boto3.set_stream_logger('')
+        #boto3.set_stream_logger('')
         
         self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
         SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')

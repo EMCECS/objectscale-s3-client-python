@@ -100,4 +100,5 @@ event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_par
 request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={
     'LocationConstraint': 'us-west-2'}, MetaData='x-amz-meta-STR;String')
 
-request = s3.metadata_search(Query='LastModified > 2018-03-01T11:22:00Z')
+response = s3.metadata_search(Query='LastModified > 2018-03-01T11:22:00Z')
+print(response)

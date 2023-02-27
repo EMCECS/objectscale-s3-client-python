@@ -9,7 +9,7 @@
               "responseCode":200
           },
           "input":{"shape":"DisableMetadataSearchRequest"},
-          "output":{"shape":"enableOutput"},
+          "output":{"shape":"MetadataSearchList"},
           "documentationUrl":"",
           "documentation":""
         },
@@ -61,30 +61,16 @@
           "MetadataSearchList":{
             "type":"structure",
             "members":{
+              "MetadataSearchEnabled":{
+                "shape":"MetadataSearchEnabled"
+              },
               "IndexableKeys":{
                 "shape":"IndexableKeys"
-              },
-              "OptionalAttributes":{
-                "shape":"OptionalAttributes"
               }
             }
           },
-          "OptionalAttributes":{
-            "type":"list",
-            "member":{
-              "shape":"Attribute"
-            }
-          },
-          "Attribute":{
-            "type":"structure",
-            "members":{
-              "Name":{
-                "shape":"AttributeName"
-              },
-              "Datatype":{
-                "shape":"AttributeDatatype"
-              }
-            }
+          "MetadataSearchEnabled":{
+            "type":"boolean"
           },
           "enableOutput":{
             "type":"structure",
