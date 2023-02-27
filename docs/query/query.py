@@ -87,7 +87,7 @@ def get_metadata_parameter(**kwargs):
     #print("END GET HOOK METHOD")
 
 # Logger useful for debugging network requests/responses. Displays raw requests/responses
-boto3.set_stream_logger('')
+#boto3.set_stream_logger('')
 
 
 #register events
@@ -96,9 +96,37 @@ event_system.register('before-call.s3.CreateBucket', add_metadata_parameter)
 # Before parameter build is called before anything happens to the parameters input into the original request
 event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_parameter)
 
-# boto3 extended createbucket call 
-request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={
-    'LocationConstraint': 'us-west-2'}, MetaData='x-amz-meta-STR;String')
+# Clean up/ teardown of objects/buckets
+s3.delete_object(Bucket="testBucket1", Key="testObj1.txt")
+s3.delete_object(Bucket="testBucket1", Key="testObj2.txt")
+s3.delete_object(Bucket="testBucket1", Key="testObj3.txt")
+request = s3.delete_bucket(Bucket='testBucket1')
 
-response = s3.metadata_search(Query='LastModified > 2018-03-01T11:22:00Z')
+# create bucket with indexed metadata key "lastmodified"
+request = s3.create_bucket(Bucket='testBucket1', CreateBucketConfiguration={
+    'LocationConstraint': 'us-west-2'}, MetaData='LastModified;datetime')
+
+# Set-up / put objects in bucket 
+content = "This is a test string for body of object"
+s3.put_object(Body= content, Bucket='testBucket1', Key="testObj1.txt")
+s3.put_object(Body= content, Bucket='testBucket1', Key="testObj2.txt")
+s3.put_object(Body= content, Bucket='testBucket1', Key="testObj3.txt")
+
+# metadatasearch on last modified, maxkeys = 1
+print("First Response\n")
+response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker="")
 print(response)
+
+
+print("\n\nSecond Page \n")
+# Using nextmarker from response, get next page
+mark1 = response.get('NextMarker')
+response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark1)
+print(response)
+
+print("\n\nThird Page \n")
+# Using nextmarker from response, get next page
+mark2 = response.get('NextMarker')
+response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
+print(response)
+

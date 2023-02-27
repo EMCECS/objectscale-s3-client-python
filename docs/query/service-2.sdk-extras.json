@@ -32,11 +32,11 @@
           "name":"MetadataSearch",
           "http":{
             "method":"GET",
-            "requestUri":"/?query={expression}",
+            "requestUri":"/{Bucket}/?query={expression}&max-keys={num_keys}&marker={marker_value}",
             "responseCode":200
           },
           "input":{"shape":"QueryRequest"},
-          "output":{"shape":"QueryResponse"},
+          "output":{"shape":"BucketQueryResult"},
           "documentationUrl":"",
           "documentation":""
         }
@@ -115,38 +115,112 @@
 
       "QueryRequest":{
         "type":"structure",
-        "required":["Query"],
+        "required":["Bucket","Query"],
         "members":{
+          "Bucket":{
+            "shape":"BucketName",
+            "location":"uri",
+            "locationName":"Bucket"
+          },
           "Query":{
             "shape":"Query",
             "location":"uri",
             "locationName":"expression"
+          },
+          "MaxKeys":{
+            "shape":"MaxKeys",
+            "location":"uri",
+            "locationName":"num_keys"
+          },
+          "Marker":{
+            "shape":"Marker",
+            "location":"uri",
+            "locationName":"marker_value"
           }
         }
       },
-      "Query":{
-        "type":"string"
-      },
+      "Query":{"type":"string"},
+      "Attributes":{"type":"string"},
+      "Sorted":{"type":"string"},
+      "IncludeOlderVersions":{"type":"boolean"},
+      "MaxKeys":{"type":"integer"},
+      "Marker":{"type":"string"},
       
-      "QueryResponse":{
+      "BucketQueryResult":{
         "type":"structure",
         "members":{
-          "Buckets":{
-            "shape":"Buckets"
+          "Name":{
+            "shape":"BucketName"
+          },
+          "NextMarker":{
+            "shape":"NextMarker"
           },
           "IsTruncated":{
             "shape":"IsTruncated"
+          },
+          "MaxKeys":{
+            "shape":"MaxKeys"
+          },
+          "ObjectMatches":{
+            "shape":"ObjectMatches"
+          },
+          "CommonPrefixMatches":{
+            "shape":"CommonPrefixMatches"
           }
         }
       },
-      "Buckets":{
+      "NextMarker":{"type":"string"},
+      "ObjectMatches":{
         "type":"list",
         "member":{
-          "Bucket":{
-            "shape":"Bucket"
-          }
+          "shape":"object"
         }
-      }
+      },
+      "object":{
+        "type":"structure",
+        "members":{
+          "objectName":{"shape":"objectName"},
+          "objectId":{"shape":"objectId"},
+          "versionId":{"shape":"versionId"},
+          "queryMds":{"shape":"queryMds"},
+          "queryBinaryMds":{"shape":"queryBinaryMds"},
+          "indexKey":{"shape":"indexKey"},
+          "isFanoutObject":{"shape":"isFanoutObject"}
+        }
+      },
+      "objectName":{"type":"string"},
+      "objectId":{"type":"string"},
+      "versionId":{"type":"string"},
+      "objectOwnerZone":{"type":"string"},
+      "queryMds":{
+        "type":"structure",
+        "members":{
+          "type":{"shape":"MDtype"},
+          "mdMap":{"shape":"Metadata"}
+        }
+      },
+      "MDtype":{"type":"string"},
+      "queryBinaryMds":{
+        "type":"structure",
+        "members":{
+          "left":{"shape":"left"},
+          "right":{"shape":"right"}
+        }
+      },
+      "left":{"type":"string"},
+      "right":{"type":"string"},
+      "indexKey":{"type":"string"},
+      "isFanoutObject":{"type":"boolean"},
+      "CommonPrefixMatches":{
+        "type":"structure",
+        "members":{
+          "PrefixGroups":{"shape":"PrefixGroups"}
+        }
+      },
+      "PrefixGroups":{"shape":"string"}
+
+        
+      
 
     }
   }
