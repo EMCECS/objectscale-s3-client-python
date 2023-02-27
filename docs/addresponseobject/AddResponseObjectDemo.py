@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 '''
-from objectscale_s3_client import botocore
+from obs_s3_client import botocore
 import boto3
 import os
 # RUN CODE FROM DIRECTLY INSIDE FOLDER

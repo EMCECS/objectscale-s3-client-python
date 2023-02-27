@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "obs-s3-client"
-version = "0.0.3"
+version = "0.0.11"
 description = "Open-source S3 client library in python to support ObjectScales proprietary S3 extensions"
 readme = "README.md"
 authors = [ {name="Drayer Sivertsen", email="drayer.sivertsen@wsu.edu"}, {name="Nathan Marugame", email="nathan.marugame@wsu.edu"}, {name="Killian Griffin", email="killian.griffin@wsu.edu"} ]

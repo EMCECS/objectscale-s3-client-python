@@ -23,23 +23,6 @@ from botocore.loaders import Loader
 #boto3.DEFAULT_SESSION = None
 SEARCH_PATH = os.path.join(os.path.dirname(__file__), 'data')
 
-def obs_setup_default_session(**kwargs):
-    print("DEFAULT SESSION FUNCTION OVERWRITTEN")
-    boto3.DEFAULT_SESSION = Session(**kwargs)
-    boto3.DEFAULT_SESSION._loader.search_paths.append(SEARCH_PATH)
-    paths = boto3.DEFAULT_SESSION._loader.search_paths
-    paths = "path"
-
-def obs_create_loader(search_path_string=SEARCH_PATH):
-    if search_path_string is None:
-        return Loader()
-    paths = []
-    extra_paths = search_path_string.split(os.pathsep)
-    for path in extra_paths:
-        path = os.path.expanduser(os.path.expandvars(path))
-        paths.append(path)
-    return Loader(extra_search_paths=paths)
-
 def obs_register_data_loader(self):
         self._components.lazy_register_component(
             'data_loader',
@@ -68,41 +51,10 @@ def obs_load_service_model(self, service_name, type_name, api_version=None):
 
     if service_name == "s3":
         api_version = "2023-2-11"
-        #full_path = os.path.join(service_name, api_version, type_name)
-        #model = self.load_data(full_path)
         extras_data = self._find_extras(service_name, type_name, api_version)
         self._extras_processor.process(model, extras_data)
 
     return model
 
-def obs_client(
-        self,
-        service_name="obs",
-        region_name=None,
-        api_version=None,
-        use_ssl=True,
-        verify=None,
-        endpoint_url=None,
-        aws_access_key_id=None,
-        aws_secret_access_key=None,
-        aws_session_token=None,
-        config=None,
-    ):
-        return self._session.create_client(
-            service_name,
-            region_name=region_name,
-            api_version=api_version,
-            use_ssl=use_ssl,
-            verify=verify,
-            endpoint_url=endpoint_url,
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
-            aws_session_token=aws_session_token,
-            config=config,
-        )
-
 Session._register_data_loader = obs_register_data_loader
 Loader.load_service_model = obs_load_service_model
-#botocore.loaders.create_loader = obs_create_loader
-#boto3.setup_default_session = obs_setup_default_session
-#boto3.Session.client = obs_client
