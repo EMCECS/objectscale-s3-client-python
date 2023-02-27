@@ -9,7 +9,7 @@
               "responseCode":200
           },
           "input":{"shape":"DisableMetadataSearchRequest"},
-          "output":{"shape":"enableOutput"},
+          "output":{"shape":"MetadataSearchList"},
           "documentationUrl":"",
           "documentation":""
         },
@@ -22,7 +22,6 @@
                 "responseCode":204
             },
             "input":{"shape":"DisableMetadataSearchRequest"},
-            "outuput":{"shape":"enableOutput"},
             "documentationUrl":"",
             "documentation":""
         },
@@ -37,6 +36,7 @@
             "responseCode":200
           },
           "input":{"shape":"QueryRequest"},
+          "output":{"shape":"QueryResponse"},
           "documentationUrl":"",
           "documentation":""
         }
@@ -75,43 +75,18 @@
           "MetadataSearchList":{
             "type":"structure",
             "members":{
+              "MetadataSearchEnabled":{
+                "shape":"MetadataSearchEnabled"
+              },
               "IndexableKeys":{
                 "shape":"IndexableKeys"
-              },
-              "OptionalAttributes":{
-                "shape":"OptionalAttributes"
               }
             }
           },
-          "OptionalAttributes":{
-            "type":"list",
-            "member":{
-              "shape":"Attribute"
-            }
+          "MetadataSearchEnabled":{
+            "type":"boolean"
           },
-          "Attribute":{
-            "type":"structure",
-            "members":{
-              "Name":{
-                "shape":"AttributeName"
-              },
-              "Datatype":{
-                "shape":"AttributeDatatype"
-              }
-            }
-          },
-          "enableOutput":{
-            "type":"structure",
-            "members":{
-              "IndexableKeys":{
-                "shape":"IndexableKeys"
-              },
-              "OptionalAttributes":{
-                "shape":"OptionalAttributes"
-              }
-            }
-          
-          },
+         
           "DisableMetadataSearchRequest":{
             "type":"structure",
             "required":["Bucket"],
@@ -152,65 +127,23 @@
       "Query":{
         "type":"string"
       },
-
+      
       "QueryResponse":{
         "type":"structure",
         "members":{
-          "Name":{
-            "shape":"BucketName"
-          },
-          "NextMarker":{
-            "shape":"NextMarker"
+          "Buckets":{
+            "shape":"Buckets"
           },
           "IsTruncated":{
             "shape":"IsTruncated"
-          },
-          "MaxKeys":{
-            "shape":"MaxKeys"
-          },
-          "ObjectMatches":{
-            "shape":"ObjectMatches"
-          },
-          "CommonPrefixMatches":{
-            "shape":"CommonPrefixMatches"
           }
         }
       },
-      "NextMarker":{
-        "type":"string"
-      },
-      "ObjectMatches":{
+      "Buckets":{
         "type":"list",
         "member":{
-          "shape":"object"
-        }
-      },
-      "object":{
-        "type":"structure",
-        "members":{
-          "objectName":{
-            "shape":"objectName"
-          },
-          "objectId":{
-            "shape":"objectId"
-          },
-          "versionId":{
-            "shape":"versionId"
-          },
-          "objectOwnerZone":{
-            "shape":"objectOwnerZone"
-          },
-          "queryMds":{
-            "shape":"queryMds"
-          },
-          "queryBinaryMds":{
-            "shape":"queryBinaryMds"
-          },
-          "indexKey":{
-            "shape":"indexKey"
-          },
-          "isFanoutObject":{
-            "shape":"isFanoutObject"
+          "Bucket":{
+            "shape":"Bucket"
           }
         }
       }

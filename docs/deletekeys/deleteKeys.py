@@ -13,24 +13,39 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 '''
+from unittest import mock
+import unittest
+import urllib3, os, sys
+from cgitb import reset
 import boto3
-import os
-# RUN CODE FROM DIRECTLY INSIDE FOLDER
 
-#CREDENTIALS
-cur_path = os.path.realpath(__file__)
-new_path = os.path.relpath('../../CREDS.txt', cur_path)
-new_path = '/home/nathanmarugame/dell/project/CREDS.txt'
-file1 = open(new_path, 'r')
+from boto3.session import Session
 
-cred_object = {}
-cred_object['aws_access_key_id'] = file1.readline().strip()
-cred_object['aws_secret_access_key'] = file1.readline().strip()
-cred_object['endpoint_url'] = file1.readline().strip()
-# END CREDENTIALS
+urllib3.disable_warnings()
 
-# BEGIN API CODE
-s3 = boto3.client("s3", **cred_object)
+
+script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+rel_path = '../../../creds.txt'
+abs_file_path = os.path.join(script_dir, rel_path)
+
+with open(abs_file_path) as file:
+    lines = file.readlines()
+    Endpoint = lines[0].strip()
+    Access_Key = lines[2].strip()
+    Secret_Key1 = lines[3].strip()
+
+cred_object = {
+    "endpoint_url": Endpoint,
+    "aws_access_key_id": Access_Key,
+    "aws_secret_access_key": Secret_Key1,
+    "use_ssl": False,
+    "verify": False
+}
+
+
+session = Session()
+s3 = session.client('s3', **cred_object)
+
 
 # Access the event system on the S3 client
 event_system = s3.meta.events
