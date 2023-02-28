@@ -117,3 +117,15 @@ class GetSearchSystemMetadataTests(unittest.TestCase):
 
         self.client.delete_bucket(Bucket='mybucket')
         self.client.delete_bucket(Bucket='ourbucket')
+
+class MetadataSearchTests(unittest.TestCase):
+    def testMetaDataQuery(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
+        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='LastModified;datetime')
+        res = self.client.metadata_search(Bucket='mybucket', Query='LastModified > 2018-03-01T11:22:00Z')
+        self.maxDiff = None
+        self.assertEqual(res, {'ResponseMetadata': {'RequestId': '0c07c871:18625de7749:3a4a5:13e', 'HostId': '681fb05dbe45d8800c6b12fa7d8378fa582d3067f54ed14052179f3f25fc710a', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Mon, 27 Feb 2023 19:42:49 GMT', 'server': 'ViPR/1.0', 'x-amz-request-id': '0c07c871:18625de7749:3a4a5:13e', 'x-amz-id-2': '681fb05dbe45d8800c6b12fa7d8378fa582d3067f54ed14052179f3f25fc710a', 'content-type': 'application/xml', 'content-length': '716'}, 'RetryAttempts': 0}, 'Name': 'mybucket', 'NextMarker': 'Cp4BCEASmQEKQDY4MWZiMDVkYmU0NWQ4ODAwYzZiMTJmYTdkODM3OGZhNTgyZDMwNjdmNTRlZDE0MDUyMTc5ZjNmMjVmYzcxMGEQABoFbXRpbWUgACjJ1Zij6TBCQDhmYTAxZTdjZTdjZDM0Y2JkNGRjNmY2MzIzMzYzN2IxZjQzNzdlYjE3MmE5ZmNhNmRlMmExZWM1NzUzODkxZTJKATA', 'IsTruncated': True, 'MaxKeys': 1, 'ObjectMatches': [{'objectName': 'testObj1.txt', 'objectId': 'e8bda5fa4a81841364ddec154331855e34e24607459529d9864489eec4e7a399', 'versionId': '0', 'queryMds': {'type': 'SYSMD', 'mdMap': {'mtime': '1677526968623'}}}]})
+
+
+
