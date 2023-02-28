@@ -34,6 +34,18 @@
                 "output":{"shape":"GetSystemMetadataSearchOutput"},
                 "documentationUrl":"http://doc.isilon.com/ECS/3.6/API/S3MetadataKeySystemListOperation_getSystemMetadataSearchKeys_7ba1e5f7a43a947638866ea460e03c53_ba672412ac371bb6cf4e69291344510e_detail.html",
                 "documentation":"<p>Returns the list of system metadata keys that are available for assigning to a bucket.<p>"
+            },
+            "MetadataSearch":{
+            "name":"MetadataSearch",
+            "http":{
+                "method":"GET",
+                "requestUri":"/{Bucket}/?query={expression}&max-keys={num_keys}&marker={marker_value}",
+                "responseCode":200
+            },
+            "input":{"shape":"QueryRequest"},
+            "output":{"shape":"BucketQueryResult"},
+            "documentationUrl":"",
+            "documentation":""
             }
         },
         "shapes":{
@@ -136,7 +148,112 @@
                     "locationName":"Bucket"
                     }
                 }
-            }
+            },
+            "QueryRequest":{
+                "type":"structure",
+                "required":["Bucket","Query"],
+                "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "location":"uri",
+                    "locationName":"Bucket"
+                },
+                    "Query":{
+                        "shape":"Query",
+                        "location":"querystring",
+                        "locationName":"expression"
+                    },
+                    "MaxKeys":{
+                        "shape":"MaxKeys",
+                        "location":"querystring",
+                        "locationName":"num_keys"
+                    },
+                    "Marker":{
+                        "shape":"Marker",
+                        "location":"querystring",
+                        "locationName":"marker_value"
+                    }
+                }
+            },
+            "Query":{"type":"string"},
+            "Attributes":{"type":"string"},
+            "Sorted":{"type":"string"},
+            "IncludeOlderVersions":{"type":"boolean"},
+            "MaxKeys":{"type":"integer"},
+            "Marker":{"type":"string"},
+            
+            "BucketQueryResult":{
+                "type":"structure",
+                "members":{
+                    "Name":{
+                        "shape":"BucketName"
+                    },
+                    "NextMarker":{
+                        "shape":"NextMarker"
+                    },
+                    "IsTruncated":{
+                        "shape":"IsTruncated"
+                    },
+                    "MaxKeys":{
+                        "shape":"MaxKeys"
+                    },
+                    "ObjectMatches":{
+                        "shape":"ObjectMatches"
+                    },
+                    "CommonPrefixMatches":{
+                        "shape":"CommonPrefixMatches"
+                    }
+                }
+            },
+            "NextMarker":{"type":"string"},
+            "ObjectMatches":{
+                "type":"list",
+                "member":{
+                "shape":"object"
+                }
+            },
+            "object":{
+                "type":"structure",
+                "members":{
+                    "objectName":{"shape":"objectName"},
+                    "objectId":{"shape":"objectId"},
+                    "versionId":{"shape":"versionId"},
+                    "queryMds":{"shape":"queryMds"},
+                    "queryBinaryMds":{"shape":"queryBinaryMds"},
+                    "indexKey":{"shape":"indexKey"},
+                    "isFanoutObject":{"shape":"isFanoutObject"}
+                }
+            },
+            "objectName":{"type":"string"},
+            "objectId":{"type":"string"},
+            "versionId":{"type":"string"},
+            "objectOwnerZone":{"type":"string"},
+            "queryMds":{
+                "type":"structure",
+                "members":{
+                    "type":{"shape":"MDtype"},
+                    "mdMap":{"shape":"Metadata"}
+                }
+            },
+            "MDtype":{"type":"string"},
+            "queryBinaryMds":{
+                "type":"structure",
+                "members":{
+                    "left":{"shape":"left"},
+                    "right":{"shape":"right"}
+                }
+            },
+            "left":{"type":"string"},
+            "right":{"type":"string"},
+            "indexKey":{"type":"string"},
+            "isFanoutObject":{"type":"boolean"},
+            "CommonPrefixMatches":{
+                "type":"structure",
+                "members":{
+                    "PrefixGroups":{"shape":"PrefixGroups"}
+                }
+            },
+            "PrefixGroups":{"shape":"string"}
         }
     }
 }
