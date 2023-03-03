@@ -72,4 +72,3 @@ client.delete_bucket(Bucket='mybucket')
 
 
 
-
