@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 '''
 
-from unittest import mock
 import unittest
 import urllib3, os, sys
 from cgitb import reset
@@ -43,6 +42,7 @@ cred_object = {
     "verify": False
 }
 
+'''
 class CreateBucketTests(unittest.TestCase):
 # boto3 extended createbucket call
  def testCreateBucketCalled(self):
@@ -95,7 +95,82 @@ class DisableMetadataSearchTests(unittest.TestCase):
         # TODO: determine expected response after metadata search is disabled (after ObjectScale bug is fixed)
         self.assertEqual(res.get('IndexableKeys', None), None)
 
+'''
+class ObjectScaleUnitTestSuite(unittest.TestCase):
+    def setUp(self):
+        self.session = Session()
+        self.client = self.session.client('s3', **cred_object)
 
+        #boto3.set_stream_logger('')
+        
+        self.client.create_bucket(Bucket='TESTBUCKET1', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
+        
+        self.client.create_bucket(Bucket='TESTBUCKET2', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='LastModified;datetime')
+        
+        # Set-up / put objects in bucket 
+        content = "This is a test string for body of object"
+        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj1.txt")
+        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj2.txt")
+        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj3.txt")
+        
+    def tearDown(self):
+        self.client.delete_bucket(Bucket='TESTBUCKET1')
+        
+        # Clean up/ teardown of objects/buckets testbucket 2
+        self.client.delete_object(Bucket="TESTBUCKET2", Key="testObj1.txt")
+        self.client.delete_object(Bucket="TESTBUCKET2", Key="testObj2.txt")
+        self.client.delete_object(Bucket="TESTBUCKET2", Key="testObj3.txt")
+        self.client.delete_bucket(Bucket='TESTBUCKET2')
+        
+    # Tests to see if boto3 native createbucket call works
+    def testCreateBucketCall(self):
+        # Check extended call
+        response = self.client.create_bucket(Bucket='TESTCREATEBUCKET', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
+        SearchMetaData='LastModified;datetime')
+        
+        # Get status code
+        statusCode = response.get("ResponseMetadata").get("HTTPStatusCode")
+        # Check if status code is good
+        self.assertEqual(statusCode, 200)
+        
+        # Check native call
+        response = self.client.create_bucket(Bucket='TESTCREATEBUCKET2', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'})
+        
+        # Get status code
+        statusCode = response.get("ResponseMetadata").get("HTTPStatusCode")
+        # Check if status code is good
+        self.assertEqual(statusCode, 200)
+        
+    # Checks to see if search metadata is being returned    
+    def testGetSearchMetadata(self):
+        res = self.client.get_search_metadata(Bucket='TESTBUCKET1')
+        self.assertEqual(res['IndexableKeys'], [{'Name': 'LastModified', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-int', 'Datatype': 'integer'}, {'Name': 'Size', 'Datatype': 'integer'}, {'Name': 'CreateTime', 'Datatype': 'datetime'}, {'Name': 'x-amz-meta-str', 'Datatype': 'string'}])
+    
+    # should be failing as of 2/12/23
+    # Might be a bug regarding server
+    def testDisableMetadataSearch(self):
+        # Test disable call return code = 204
+        res = self.client.disable_metadata_search(Bucket='TESTBUCKET1')
+        self.assertEqual(204, res['ResponseMetadata']['HTTPStatusCode'])
+        
+    # Checks to see if metadata query is working with pagination
+    def testMetadataSearch(self):
+        # metadatasearch on last modified, maxkeys = 1
+        response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1)
+        self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj1.txt')
+
+        # Using nextmarker from response, get next page
+        mark1 = response.get('NextMarker')
+        response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark1)
+        self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj2.txt')
+
+        # Using nextmarker from response, get next page
+        mark2 = response.get('NextMarker')
+        response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
+        self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj3.txt')
+        
 class GetSearchSystemMetadataTests(unittest.TestCase):
  def testGetSystemMetadataResult(self):
         self.session = Session()
@@ -118,14 +193,4 @@ class GetSearchSystemMetadataTests(unittest.TestCase):
         self.client.delete_bucket(Bucket='mybucket')
         self.client.delete_bucket(Bucket='ourbucket')
 
-class MetadataSearchTests(unittest.TestCase):
-    def testMetaDataQuery(self):
-        self.session = Session()
-        self.client = self.session.client('s3', **cred_object)
-        self.client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='LastModified;datetime')
-        res = self.client.metadata_search(Bucket='mybucket', Query='LastModified > 2018-03-01T11:22:00Z')
-        self.maxDiff = None
-        self.assertEqual(res, {'ResponseMetadata': {'RequestId': '0c07c871:18625de7749:3a4a5:13e', 'HostId': '681fb05dbe45d8800c6b12fa7d8378fa582d3067f54ed14052179f3f25fc710a', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Mon, 27 Feb 2023 19:42:49 GMT', 'server': 'ViPR/1.0', 'x-amz-request-id': '0c07c871:18625de7749:3a4a5:13e', 'x-amz-id-2': '681fb05dbe45d8800c6b12fa7d8378fa582d3067f54ed14052179f3f25fc710a', 'content-type': 'application/xml', 'content-length': '716'}, 'RetryAttempts': 0}, 'Name': 'mybucket', 'NextMarker': 'Cp4BCEASmQEKQDY4MWZiMDVkYmU0NWQ4ODAwYzZiMTJmYTdkODM3OGZhNTgyZDMwNjdmNTRlZDE0MDUyMTc5ZjNmMjVmYzcxMGEQABoFbXRpbWUgACjJ1Zij6TBCQDhmYTAxZTdjZTdjZDM0Y2JkNGRjNmY2MzIzMzYzN2IxZjQzNzdlYjE3MmE5ZmNhNmRlMmExZWM1NzUzODkxZTJKATA', 'IsTruncated': True, 'MaxKeys': 1, 'ObjectMatches': [{'objectName': 'testObj1.txt', 'objectId': 'e8bda5fa4a81841364ddec154331855e34e24607459529d9864489eec4e7a399', 'versionId': '0', 'queryMds': {'type': 'SYSMD', 'mdMap': {'mtime': '1677526968623'}}}]})
-
-
-
+    

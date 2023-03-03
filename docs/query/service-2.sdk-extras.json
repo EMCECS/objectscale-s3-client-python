@@ -26,17 +26,16 @@
             "documentation":""
         },
 
-
-
+        
         "MetadataSearch":{
           "name":"MetadataSearch",
           "http":{
             "method":"GET",
-            "requestUri":"/{Bucket}/?query={expression}&max-keys={num_keys}&marker={marker_value}",
+            "requestUri":"/{Bucket}/?query={expression}",
             "responseCode":200
           },
           "input":{"shape":"QueryRequest"},
-          "output":{"shape":"BucketQueryResult"},
+          "output":{"shape":"QueryResponse"},
           "documentationUrl":"",
           "documentation":""
         }
@@ -127,15 +126,30 @@
             "location":"uri",
             "locationName":"expression"
           },
+          "Attributes":{
+            "shape":"Attributes",
+            "location":"querystring",
+            "locationName":"attributes"
+          },
+          "Sorted":{
+            "shape":"Sorted",
+            "location":"querystring",
+            "locationName":"sorted"
+          },
+          "IncludeOlderVersion":{
+            "shape":"IncludeOlderVersions",
+            "location":"querystring",
+            "locationName":"include_older_version"
+          },
           "MaxKeys":{
             "shape":"MaxKeys",
-            "location":"uri",
-            "locationName":"num_keys"
+            "location":"querystring",
+            "locationName":"max-keys"
           },
           "Marker":{
             "shape":"Marker",
-            "location":"uri",
-            "locationName":"marker_value"
+            "location":"querystring",
+            "locationName":"marker"
           }
         }
       },
@@ -146,7 +160,7 @@
       "MaxKeys":{"type":"integer"},
       "Marker":{"type":"string"},
       
-      "BucketQueryResult":{
+      "QueryResponse":{
         "type":"structure",
         "members":{
           "Name":{

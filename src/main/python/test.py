@@ -50,38 +50,25 @@ client = session.client('s3', **cred_object)
 # res = client.list_buckets()
 # print(res)
 
-# client.delete_object(Bucket="testBucket1", Key="testObj1.txt")
-# client.delete_object(Bucket="testBucket1", Key="testObj2.txt")
-# client.delete_object(Bucket="testBucket1", Key="testObj3.txt")
-# request = client.delete_bucket(Bucket='testBucket1')
+res = client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
-# create bucket with indexed metadata key "lastmodified"
-request = client.create_bucket(Bucket='testBucket1', CreateBucketConfiguration={
-    'LocationConstraint': 'us-west-2'}, SearchMetaData='LastModified;datetime')
+res = client.get_bucket_acl(Bucket='mybucket')
+# print(res)
 
-# Set-up / put objects in bucket
-content = "This is a test string for body of object"
-client.put_object(Body= content, Bucket='testBucket1', Key="testObj1.txt")
-client.put_object(Body= content, Bucket='testBucket1', Key="testObj2.txt")
-client.put_object(Body= content, Bucket='testBucket1', Key="testObj3.txt")
-
-# metadatasearch on last modified, maxkeys = 1
-print("First Response\n")
-response = client.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker="")
-print(response)
+# boto3.set_stream_logger('')
 
 
-print("\n\nSecond Page \n")
-# Using nextmarker from response, get next page
-mark1 = response.get('NextMarker')
-response = client.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark1)
-print(response)
+res = client.get_search_metadata(Bucket='mybucket')
+print(res)
 
-print("\n\nThird Page \n")
-# Using nextmarker from response, get next page
-mark2 = response.get('NextMarker')
-response = client.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
-print(response)
+res = client.disable_metadata_search(Bucket='mybucket')
+print(res)
+
+res = client.get_search_metadata(Bucket='mybucket')
+print(res)
+
+client.delete_bucket(Bucket='mybucket')
+
 
 
 
