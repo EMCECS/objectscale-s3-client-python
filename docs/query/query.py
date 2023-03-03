@@ -46,61 +46,8 @@ cred_object = {
 session = Session()
 s3 = session.client('s3', **cred_object)
 
-# Access the event system on the S3 client
-event_system = s3.meta.events
-
-
-
-# Somehow modify the create bucket request parameters
-def add_metadata_parameter(**kwargs):
-    #print("INSIDE ADD HOOK METHOD")
-
-    #getting params dict in kwargs
-    parameters = kwargs.get('params')
-
-    #getting headers field
-    headers = parameters.get('headers')
-
-    # Formatting Metadata search rquest field. list of dictionaries? 
-    # http://doc.isilon.com/ECS/3.6/DataAccessGuide/GUID-5E2A0B34-2FE5-498F-8627-C54C0681EEA7.html
-    # Must be specific format
-    # Seeing if i can modify header field
-    #headers['x-emc-metadata-search'] ="x-amz-meta-STR;String"
-    
-    headers['x-emc-metadata-search'] = MetaDataString
-
-    #print("END ADD HOOK METHOD")
-
-# Accessing parameters method
-def get_metadata_parameter(**kwargs):
-
-    #print("INSIDE GET HOOK METHOD")
-
-    # Checking if metadata field was entered
-    parameters = kwargs.get('params')
-    if 'MetaData' in parameters:
-        # Holds metadata string parameter
-        global MetaDataString
-        # Assign to global variable
-        MetaDataString = parameters.get('MetaData')
-
-    #print("END GET HOOK METHOD")
-
 # Logger useful for debugging network requests/responses. Displays raw requests/responses
 #boto3.set_stream_logger('')
-
-
-#register events
-# Before call builds everything and is called just before request is sent
-event_system.register('before-call.s3.CreateBucket', add_metadata_parameter)
-# Before parameter build is called before anything happens to the parameters input into the original request
-event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_parameter)
-
-# Clean up/ teardown of objects/buckets
-s3.delete_object(Bucket="testBucket1", Key="testObj1.txt")
-s3.delete_object(Bucket="testBucket1", Key="testObj2.txt")
-s3.delete_object(Bucket="testBucket1", Key="testObj3.txt")
-request = s3.delete_bucket(Bucket='testBucket1')
 
 # create bucket with indexed metadata key "lastmodified"
 request = s3.create_bucket(Bucket='testBucket1', CreateBucketConfiguration={
@@ -114,7 +61,7 @@ s3.put_object(Body= content, Bucket='testBucket1', Key="testObj3.txt")
 
 # metadatasearch on last modified, maxkeys = 1
 print("First Response\n")
-response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker="")
+response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1)
 print(response)
 
 
@@ -130,3 +77,22 @@ mark2 = response.get('NextMarker')
 response = s3.metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
 print(response)
 
+# Clean up/ teardown of objects/buckets
+s3.delete_object(Bucket="testBucket1", Key="testObj1.txt")
+s3.delete_object(Bucket="testBucket1", Key="testObj2.txt")
+s3.delete_object(Bucket="testBucket1", Key="testObj3.txt")
+request = s3.delete_bucket(Bucket='testBucket1')
+
+''' 
+NOTES ON SHAPE DEFINITION
+location: querystring
+locationName : max-keys
+
+querystring location allows botocore to build uri with optional parameters
+using the metadata_search example, botocore builds uri starting with uri definition 
+("requestUri":"/{Bucket}/?query={expression}")
+then, uses additional members when parameters are added to the call
+so, this call (metadata_search(Bucket='testBucket1', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1))
+builds to (testBucket1/?query=LastModified%20%3E%202018-03-01T11%3A22%3A00Z&max-keys=1)
+notice "locationName" is the name of the field in the uri
+'''

@@ -1,3 +1,6 @@
+Made this file to help visualize structure of response object for 
+metadatasearch query.
+
 <BucketQueryResult>
 	<Name>testBucket1</Name>
 	<IsTruncated>false</IsTruncated>
