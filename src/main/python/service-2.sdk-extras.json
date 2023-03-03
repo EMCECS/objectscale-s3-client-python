@@ -36,6 +36,7 @@
                 "output":{"shape":"QueryResponse"},
                 "documentationUrl":"",
                 "documentation":""
+              },
 
             "GetSystemMetadata":{
                 "name":"GetSystemMetadata",
