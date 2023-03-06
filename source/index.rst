@@ -7,8 +7,11 @@ Welcome to obs-s3-client's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
+
+.. datatemplate:json:: sample.json
+    :template: sample.tmpl
 
 
 

@@ -35,7 +35,7 @@
                 "input":{"shape":"QueryRequest"},
                 "output":{"shape":"QueryResponse"},
                 "documentationUrl":"",
-                "documentation":""
+                "documentation":"<p>Executes a bucket search and returns list of objects, and their system and user metadata values, that match the selection conditions in the search query expression.<p>"
               },
 
             "GetSystemMetadata":{

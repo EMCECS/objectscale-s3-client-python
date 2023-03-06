@@ -1,0 +1,17 @@
+{   
+    "merge":{
+        "operations":{
+            "GetSystemMetadata":{
+                "name":"GetSystemMetadata",
+                "http":{
+                    "method":"GET",
+                    "requestUri":"?searchmetadata",
+                    "responseCode":200
+                },
+                "output":{"shape":"GetSystemMetadataSearchOutput"},
+                "documentationUrl":"http://doc.isilon.com/ECS/3.6/API/S3MetadataKeySystemListOperation_getSystemMetadataSearchKeys_7ba1e5f7a43a947638866ea460e03c53_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":"<p>Returns the list of system metadata keys that are available for assigning to a bucket.<p>"
+            }
+        }
+    }
+}
