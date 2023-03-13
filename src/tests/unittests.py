@@ -107,13 +107,16 @@ class ObjectScaleUnitTestSuite(unittest.TestCase):
         SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
         
         self.client.create_bucket(Bucket='TESTBUCKET2', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, 
-        SearchMetaData='LastModified;datetime')
+        SearchMetaData='LastModified;datetime,Size;integer')
         
         # Set-up / put objects in bucket 
-        content = "This is a test string for body of object"
-        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj1.txt")
-        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj2.txt")
-        self.client.put_object(Body= content, Bucket='TESTBUCKET2', Key="testObj3.txt")
+        # Set-up / put objects in bucket 
+        content1 = "This is a test string for body of object"
+        content2 = "Short"
+        content3 = "This is medium"
+        self.client.put_object(Body= content1, Bucket='TESTBUCKET2', Key="testObj1.txt")
+        self.client.put_object(Body= content2, Bucket='TESTBUCKET2', Key="testObj2.txt")
+        self.client.put_object(Body= content3, Bucket='TESTBUCKET2', Key="testObj3.txt")
         
     def tearDown(self):
         self.client.delete_bucket(Bucket='TESTBUCKET1')
@@ -163,8 +166,11 @@ class ObjectScaleUnitTestSuite(unittest.TestCase):
         
         
     # Checks to see if metadata query is working with pagination
+    # Fully check query with negative check
+    # Test response/requests, put in additional attributes (e.g., )pick a different piece of system metadta = all objects get that attribute
+    # Makes sure parsing is correct shape structure
     def testMetadataSearch(self):
-        # metadatasearch on last modified, maxkeys = 1
+        # metadatasearch on last modified, maxkeys = 1 (True positive of query, pagination)
         response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1)
         self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj1.txt')
 
@@ -177,6 +183,18 @@ class ObjectScaleUnitTestSuite(unittest.TestCase):
         mark2 = response.get('NextMarker')
         response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
         self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj3.txt')
+        
+        # Makes sure that reverse query returns no results (True Negative of query)
+        response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified < 2018-03-01T11:22:00Z')
+        self.assertEqual(len(response['ObjectMatches']), 0)
+        
+        # Test additional queries and response parsing
+        response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z and Size > 7', Attributes = 'ContentType', Sorted = "Size", IncludeOlderVersion=False)
+        self.assertEqual(response['ObjectMatches'][0]["objectName"],"testObj3.txt")
+        self.assertEqual(response['ObjectMatches'][1]["objectName"],"testObj1.txt")
+        self.assertEqual(response['ObjectMatches'][0]["queryMds"]["mdMap"]["size"], "14")
+        self.assertEqual(response['ObjectMatches'][1]["queryMds"]["mdMap"]["size"], "40")
+        
         
 class GetSearchSystemMetadataTests(unittest.TestCase):
  def testGetSystemMetadataResult(self):
