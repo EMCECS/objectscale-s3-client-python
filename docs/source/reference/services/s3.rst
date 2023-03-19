@@ -2179,7 +2179,7 @@ Client
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metaData used for the ECS metadata search operation.
+      Search metadata used for the ECS metadata search operation.
 
       
 
@@ -5981,6 +5981,14 @@ Client
     :returns: None
 
   .. py:method:: disable_metadata_search(**kwargs)
+
+    
+
+    Disables the list of bucket specific metadata keys that were previously assigned to a bucket.
+
+    
+
+    
 
     
 
@@ -13748,6 +13756,14 @@ Client
     
 
   .. py:method:: get_search_metadata(**kwargs)
+
+    
+
+    Returns the list of bucket specific metadata keys that are available for assigning to a bucket.
+
+    
+
+    
 
     
 
@@ -32486,7 +32502,7 @@ Service Resource
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metaData used for the ECS metadata search operation.
+      Search metadata used for the ECS metadata search operation.
 
       
 
@@ -33321,7 +33337,7 @@ Bucket
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metaData used for the ECS metadata search operation.
+      Search metadata used for the ECS metadata search operation.
 
       
 

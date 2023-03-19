@@ -11,7 +11,7 @@
                 "input":{"shape":"GetSearchMetadataRequest"},
                 "output":{"shape":"GetSearchMetadataOutput"},
                 "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
-                "documentation":""
+                "documentation":"<p>Returns the list of bucket specific metadata keys that are available for assigning to a bucket.<p>"
             },
             "DisableMetadataSearch":{
                 "name":"DisableMetadataSearch",
@@ -21,8 +21,8 @@
                     "responseCode":204
                 },
                 "input":{"shape":"DisableMetadataSearchRequest"},
-                "documentationUrl":"",
-                "documentation":""
+                "documentationUrl":"http://doc.isilon.com/ECS/3.6/API/S3MetadataKeyListOperations_disableMetadataSearch_7dbe35c15fbfcbc751fb549154e2319f_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":"<p>Disables the list of bucket specific metadata keys that were previously assigned to a bucket.<p>"
             },
         
             "MetadataSearch":{
@@ -55,7 +55,7 @@
                 "members":{
                     "SearchMetaData":{
                     "shape":"SearchMetaData",
-                    "documentation":"<p>Search metaData used for the ECS metadata search operation.<p>",
+                    "documentation":"<p>Search metadata used for the ECS metadata search operation.<p>",
                     "location":"header",
                     "locationName":"x-emc-metadata-search"
                     }
