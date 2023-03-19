@@ -276,7 +276,7 @@
                 "PrefixGroups":{"shape":"PrefixGroups"}
               }
             },
-            "PrefixGroups":{"shape":"string"}
+            "PrefixGroups":{"type":"string"}
         }
     }
 }

@@ -20,6 +20,37 @@
 # abs_file_path = os.path.join(script_dir, rel_path)
 # sys.path.insert(0, os.path.abspath(abs_file_path))
 
+import datetime
+import os
+
+import boto3
+import boto3.session
+# from boto3.docs import generate_docs
+
+
+session = boto3.session.Session(region_name='us-east-1')
+
+import os
+
+from boto3.docs.service import ServiceDocumenter
+
+
+def generate_docs(root_dir, session):
+    services_doc_path = os.path.join(root_dir, 'reference', 'services')
+    if not os.path.exists(services_doc_path):
+        os.makedirs(services_doc_path)
+
+    docs = ServiceDocumenter(
+        's3', session
+    ).document_service()
+    service_doc_path = os.path.join(
+        services_doc_path, 's3' + '.rst'
+    )
+    with open(service_doc_path, 'wb') as f:
+        f.write(docs)
+        
+generate_docs(os.path.dirname(os.path.abspath(__file__)), session)
+
 
 
 
@@ -44,7 +75,7 @@ release = '0.0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx-jsonschema', 'sphinxcontrib.datatemplates']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -63,7 +94,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+# language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -101,8 +132,12 @@ html_static_path = ['_static']
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 #
-# html_sidebars = {}
-
+html_show_sourcelink = False
+html_sidebars = {
+    '**': ['logo-text.html',
+           'globaltoc.html',
+           'searchbox.html']
+}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -164,7 +199,7 @@ texinfo_documents = [
 # -- Options for Epub output -------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = project
+# epub_title = project
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
@@ -176,7 +211,7 @@ epub_title = project
 # epub_uid = ''
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+# epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
@@ -184,9 +219,11 @@ epub_exclude_files = ['search.html']
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+# intersphinx_mapping = {'https://docs.python.org/': None}
 
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+autoclass_content = 'both'
