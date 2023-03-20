@@ -6004,6 +6004,10 @@ Client
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
 
+      Specifies the S3 bucket whose search metadata is being disabled.
+
+      
+
     
     
     :returns: None
@@ -13759,7 +13763,7 @@ Client
 
     
 
-    Returns the list of specific metadata keys that are searchable on the specified bucket, if enabled.
+    Returns the list of specific metadata keys that are searchable on the specified bucket, if enabled. These are the keys that can be used in query expressions for this bucket that will filter the object listings.
 
     
 
@@ -13816,9 +13820,21 @@ Client
         
 
         - **MetadataSearchEnabled** *(boolean) --* 
+
+          Boolean identifying if search metadata is enabled.
+
+          
         
 
         - **IndexableKeys** *(list) --* 
+
+          List of searchable metadata keys for the bucket.
+
+          
+
+          
+
+          
           
 
           - *(dict) --* 
@@ -13866,7 +13882,7 @@ Client
 
     
 
-    Returns the list of system metadata keys that are available for assigning to a bucket.
+    Returns the list of system metadata keys that are available for assigning to a bucket. After assignment these can be used for filtering lists of objects based on search metadata queries.
 
     
 
@@ -18350,29 +18366,85 @@ Client
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
 
+      Specifies the S3 bucket whose search metadata is being queried.
+
+      
+
     
     :type Query: string
     :param Query: **[REQUIRED]** 
+
+      (required) is an expression takes the form:[(]{condition1}[%20[and/or]%20{condition2}][)][%20[and/or]%20...]
+
+      
+
+      where:
+
+      
+
+      
+      * conditionis a metadata keyname filter in the form:{selector} {operator} {argument}, for example 'LastModified>2015-01-01T00:00:00Z'
+      
+
+      
+
+      
+
+      in which:
+
+      
+
+        
+        * selector is a searchable keyname associated with the bucket
+        
+        * operator is one of: ==, >, <, >=, <=
+        
+        * argument is a value against which the selector is tested. The form of the argument must match the datatype of the key being indexed, which is one of: string, integer, datetime, decimal
+        
+
+      
+
+      
 
     
     :type Attributes: string
     :param Attributes: 
 
+      (optional) is a list one or more metadata names that are not being indexed, but which can be listed in the query results. For example: '&attributes=ContentType,Retention'
+
+      
+
     
     :type Sorted: string
     :param Sorted: 
+
+      (optional) is the name of one key that appears in the query expression that becomes the sort keyfor the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.
+
+      
 
     
     :type IncludeOlderVersion: boolean
     :param IncludeOlderVersion: 
 
+      (optional) is a boolean that when set to truecauses both current and non-current versions of the keys to be listed, and when set to false causes only the current versions of keys to be listed. The default is false.
+
+      
+
     
     :type MaxKeys: integer
     :param MaxKeys: 
 
+      (optional) specifies the number of keys returned in the response body. Allows you to return fewer keys that the default.
+
+      
+
     
     :type Marker: string
     :param Marker: 
+
+      (optional) specifies the key to start with which will be the one after the marker. When no more pages exist, a marker will not be returned and NO MORE PAGES will be returned
+
+      
 
     
     
@@ -18420,18 +18492,58 @@ Client
         
 
         - **Name** *(string) --* 
+
+          Name of the bucket.
+
+          
+
+          
+
+          
         
 
         - **NextMarker** *(string) --* 
+
+          Marker to request the next page of results.
+
+          
+
+          
+
+          
         
 
         - **IsTruncated** *(boolean) --* 
+
+          Indicates whether all the objects matching query were returned (if true more results remain and another query is necessary).
+
+          
+
+          
+
+          
         
 
         - **MaxKeys** *(integer) --* 
+
+          The maximum number of keys that will be returned in the response.
+
+          
+
+          
+
+          
         
 
         - **ObjectMatches** *(list) --* 
+
+          List of objects that match the query.
+
+          
+
+          
+
+          
           
 
           - *(dict) --* 
@@ -18483,9 +18595,25 @@ Client
         
 
         - **CommonPrefixMatches** *(dict) --* 
+
+          List container of PrefixGroups.
+
+          
+
+          
+
+          
           
 
           - **PrefixGroups** *(string) --* 
+
+            A substring that starts at the beginning of the objectName and ends at the first occurrence of the specified delimiter after the prefix.
+
+            
+
+            
+
+            
       
     
 
