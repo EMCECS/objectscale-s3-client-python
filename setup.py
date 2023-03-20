@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name = "obs-s3-client",
-    version = "0.0.11",
+    version = "0.0.28",
     description = "Open-source S3 client library in python to support ObjectScales proprietary S3 extensions",
     author = "Drayer Sivertsen",
     classifiers = [ 'Development Status :: 3 - Alpha',
