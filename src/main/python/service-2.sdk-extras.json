@@ -10,8 +10,8 @@
                 },
                 "input":{"shape":"GetSearchMetadataRequest"},
                 "output":{"shape":"GetSearchMetadataOutput"},
-                "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
-                "documentation":"<p>Returns the list of bucket specific metadata keys that are available for assigning to a bucket.<p>"
+                
+                "documentation":"<p>Returns the list of specific metadata keys that are searchable on the specified bucket, if enabled.<p>"
             },
             "DisableMetadataSearch":{
                 "name":"DisableMetadataSearch",
@@ -68,7 +68,7 @@
                 "members":{
                   "Bucket":{
                     "shape":"BucketName",
-                    "documentation":"<p>Specifies the S3 bucket whose metadata is being requested.</p>",
+                    "documentation":"<p>Specifies the S3 bucket whose search metadata is being requested.</p>",
                     "contextParam":{"name":"Bucket"},
                     "location":"uri",
                     "locationName":"Bucket"
@@ -94,7 +94,8 @@
                 "type":"structure",
                 "members":{
                     "IndexableKeys":{
-                        "shape":"IndexableKeys"
+                        "shape":"IndexableKeys",
+                        "documentation":"<p>List of searchable metadata keys for the bucket.<p>"
                     },
                     "OptionalAttributes":{
                         "shape":"OptionalAttributes"

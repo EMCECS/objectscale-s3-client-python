@@ -13759,7 +13759,7 @@ Client
 
     
 
-    Returns the list of bucket specific metadata keys that are available for assigning to a bucket.
+    Returns the list of specific metadata keys that are searchable on the specified bucket, if enabled.
 
     
 
@@ -13779,7 +13779,7 @@ Client
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
 
-      Specifies the S3 bucket whose metadata is being requested.
+      Specifies the S3 bucket whose search metadata is being requested.
 
       
 
@@ -13912,6 +13912,14 @@ Client
         
 
         - **IndexableKeys** *(list) --* 
+
+          List of searchable metadata keys for the bucket.
+
+          
+
+          
+
+          
           
 
           - *(dict) --* 
