@@ -153,7 +153,7 @@ class ObjectScaleUnitTestSuite(unittest.TestCase):
     def testDisableMetadataSearch(self):
         # Test disable call return code = 204
         res = self.client.disable_metadata_search(Bucket='TESTBUCKET1')
-         # Testing get call again
+        # Testing get call again
         # Shouldn't return anything if disabled!!
         # check getcall with bucket wihtout indexed fields, put it here
         res = self.client.get_search_metadata(Bucket='mybucket')
