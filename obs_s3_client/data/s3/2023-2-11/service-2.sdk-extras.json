@@ -1,44 +1,139 @@
 {   
     "merge":{
         "operations":{
-            "Ping":{
-                "name":"Ping",
+            "GetSearchMetadata":{
+                "name":"GetSearchMetadata",
                 "http":{
                     "method":"GET",
-                    "requestUri":"/?ping",
+                    "requestUri":"{Bucket}/?searchmetadata",
                     "responseCode":200
                 },
-                "input":{"shape":"PingRequestShape"},
-                "output":{"shape":"PingResponseShape"},
+                "input":{"shape":"GetSearchMetadataRequest"},
+                "output":{"shape":"GetSearchMetadataOutput"},
+                "documentationUrl":"http://doc.isilon.com/ECS/3.5/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":""
+            },
+            "DisableMetadataSearch":{
+                "name":"DisableMetadataSearch",
+                "http":{
+                    "method":"DELETE",
+                    "requestUri":"/{Bucket}?searchmetadata",
+                    "responseCode":204
+                },
+                "input":{"shape":"DisableMetadataSearchRequest"},
                 "documentationUrl":"",
                 "documentation":""
+            },
+            "GetSystemMetadata":{
+                "name":"GetSystemMetadata",
+                "http":{
+                    "method":"GET",
+                    "requestUri":"?searchmetadata",
+                    "responseCode":200
+                },
+                "output":{"shape":"GetSystemMetadataSearchOutput"},
+                "documentationUrl":"http://doc.isilon.com/ECS/3.6/API/S3MetadataKeySystemListOperation_getSystemMetadataSearchKeys_7ba1e5f7a43a947638866ea460e03c53_ba672412ac371bb6cf4e69291344510e_detail.html",
+                "documentation":"<p>Returns the list of system metadata keys that are available for assigning to a bucket.<p>"
             }
         },
         "shapes":{
-            "ResponseMemberShape":{
-                "type":"string"
-            },
-            "PingResponseShape":{
-                "type":"structure",
+            "CreateBucketRequest":{
                 "members":{
-                    "ResponseMember":{
-                        "shape":"ResponseMemberShape",
-                        "location":"header",
-                        "locationName":"date"
+                    "SearchMetaData":{
+                    "shape":"SearchMetaData",
+                    "documentation":"<p>Search metaData used for the ECS metadata search operation.<p>",
+                    "location":"header",
+                    "locationName":"x-emc-metadata-search"
                     }
                 }
             },
-            "TestParameterShape":{
-                "type":"string"
-            },
-            "PingRequestShape":{
+            "SearchMetaData":{"type":"string"},
+            "GetSearchMetadataRequest":{
                 "type":"structure",
-                "required":["TestParameter"],
+                "required":["Bucket"],
                 "members":{
-                    "TestParameter":{
-                        "shape":"TestParameterShape",
-                        "location":"header",
-                        "locationName":"x-emc-metadata-search"
+                  "Bucket":{
+                    "shape":"BucketName",
+                    "documentation":"<p>Specifies the S3 bucket whose metadata is being requested.</p>",
+                    "contextParam":{"name":"Bucket"},
+                    "location":"uri",
+                    "locationName":"Bucket"
+                  }
+                }
+            },
+            "GetSearchMetadataOutput":{
+                "type":"structure",
+                "members":{
+                    "IndexableKeys":{
+                        "shape":"IndexableKeys"
+                    },
+                    "OptionalAttributes":{
+                        "shape":"OptionalAttributes"
+                    }
+                }
+            },
+            "GetSystemMetadataSearchOutput":{
+                "type":"structure",
+                "members":{
+                    "IndexableKeys":{
+                        "shape":"IndexableKeys"
+                    },
+                    "OptionalAttributes":{
+                        "shape":"OptionalAttributes"
+                    }
+                }
+            },
+            "IndexableKeys":{
+                "type":"list",
+                "member":{
+                    "shape":"Key"
+                }
+            },
+            "Key":{
+                "type":"structure",
+                "members":{
+                    "Name":{
+                        "shape":"Name",
+                        "documentation":"<p>Name of the metadata key.</p>"
+                    },
+                    "Datatype":{
+                        "shape":"Datatype",
+                        "documentation":"<p>Data type of the key.</p>"
+                    }
+                }
+            },
+            "Name":{"type":"string"},
+            "Datatype":{"type":"string"},
+            "OptionalAttributes":{
+                "type":"list",
+                "member":{
+                    "shape":"Attribute"
+                }
+            },
+            "Attribute":{
+                "type":"structure",
+                "members":{
+                    "Name":{
+                        "shape":"AttributeName",
+                        "documentation":"<p>Name of the metadata key.</p>"
+                    },
+                    "Datatype":{
+                        "shape":"AttributeDatatype",
+                        "documentation":"<p>Data type of the key.</p>"
+                    }
+                }
+            },
+            "AttributeName":{"type":"string"},
+            "AttributeDatatype":{"type":"string"},
+            "DisableMetadataSearchRequest":{
+                "type":"structure",
+                "required":["Bucket"],
+                "members":{
+                "Bucket":{
+                    "shape":"BucketName",
+                    "contextParam":{"name":"Bucket"},
+                    "location":"uri",
+                    "locationName":"Bucket"
                     }
                 }
             }
