@@ -51,6 +51,21 @@ def generate_docs(root_dir, session):
         
 generate_docs(os.path.dirname(os.path.abspath(__file__)), session)
 
+path = os.path.dirname(os.path.realpath('__file__'))+"/reference/services/s3.rst"
+
+f = open(path, "r")
+
+lines = f.readlines()
+f.close
+
+f2 = open(path, 'w')
+
+for line in lines:
+    if 'See also:' not in line:
+        f2.write(line)
+
+f2.close()
+
 
 
 
