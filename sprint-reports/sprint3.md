@@ -44,3 +44,6 @@ Here are changes we plan to implement in the next sprint:
    * Critcally assess all possible solutions and their time constraints during sprint planning
    * Point on the safe side (higher then expected)
    * Put in at least 2 hours toward the sprint during weekdays
+
+## Sprint Video
+https://youtu.be/ZZQo9MKfNng
