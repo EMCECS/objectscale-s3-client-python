@@ -402,7 +402,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -646,7 +645,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -1296,7 +1294,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
 
 
     **Request Syntax** 
@@ -2051,7 +2048,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
 
 
     **Request Syntax** 
@@ -2493,7 +2489,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -2995,7 +2990,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
 
 
     **Request Syntax** 
@@ -3077,7 +3071,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketAnalyticsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -3143,7 +3136,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
 
 
     **Request Syntax** 
@@ -3219,7 +3211,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketEncryption>`_    
 
 
     **Request Syntax** 
@@ -3282,7 +3273,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketIntelligentTieringConfiguration>`_    
 
 
     **Request Syntax** 
@@ -3341,7 +3331,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration>`_    
 
 
     **Request Syntax** 
@@ -3411,7 +3400,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -3495,7 +3483,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketMetricsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -3557,7 +3544,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketOwnershipControls>`_    
 
 
     **Request Syntax** 
@@ -3624,7 +3610,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_    
 
 
     **Request Syntax** 
@@ -3714,7 +3699,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication>`_    
 
 
     **Request Syntax** 
@@ -3790,7 +3774,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_    
 
 
     **Request Syntax** 
@@ -3870,7 +3853,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_    
 
 
     **Request Syntax** 
@@ -3956,7 +3938,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
 
 
     **Request Syntax** 
@@ -4151,7 +4132,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging>`_    
 
 
     **Request Syntax** 
@@ -4320,7 +4300,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
 
 
     **Request Syntax** 
@@ -5951,7 +5930,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeletePublicAccessBlock>`_    
 
 
     **Request Syntax** 
@@ -5992,7 +5970,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DisableMetadataSearch>`_    
 
 
     **Request Syntax** 
@@ -6215,7 +6192,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAccelerateConfiguration>`_    
 
 
     **Request Syntax** 
@@ -6295,7 +6271,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl>`_    
 
 
     **Request Syntax** 
@@ -6507,7 +6482,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAnalyticsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -6794,7 +6768,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors>`_    
 
 
     **Request Syntax** 
@@ -6995,7 +6968,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketEncryption>`_    
 
 
     **Request Syntax** 
@@ -7167,7 +7139,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketIntelligentTieringConfiguration>`_    
 
 
     **Request Syntax** 
@@ -7411,7 +7382,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration>`_    
 
 
     **Request Syntax** 
@@ -7710,7 +7680,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -8043,7 +8012,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration>`_    
 
 
     **Request Syntax** 
@@ -8511,7 +8479,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation>`_    
 
 
     **Request Syntax** 
@@ -8607,7 +8574,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLogging>`_    
 
 
     **Request Syntax** 
@@ -8829,7 +8795,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -9029,7 +8994,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketNotification>`_    
 
 
     **Request Syntax** 
@@ -9306,7 +9270,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketNotificationConfiguration>`_    
 
 
     **Request Syntax** 
@@ -9717,7 +9680,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketOwnershipControls>`_    
 
 
     **Request Syntax** 
@@ -9847,7 +9809,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketPolicy>`_    
 
 
     **Request Syntax** 
@@ -9951,7 +9912,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketPolicyStatus>`_    
 
 
     **Request Syntax** 
@@ -10059,7 +10019,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketReplication>`_    
 
 
     **Request Syntax** 
@@ -10631,7 +10590,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketRequestPayment>`_    
 
 
     **Request Syntax** 
@@ -10747,7 +10705,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketTagging>`_    
 
 
     **Request Syntax** 
@@ -10890,7 +10847,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketVersioning>`_    
 
 
     **Request Syntax** 
@@ -10999,7 +10955,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite>`_    
 
 
     **Request Syntax** 
@@ -11438,7 +11393,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
 
 
     **Request Syntax** 
@@ -12093,7 +12047,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAcl>`_    
 
 
     **Request Syntax** 
@@ -12497,7 +12450,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAttributes>`_    
 
 
     **Request Syntax** 
@@ -12884,7 +12836,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLegalHold>`_    
 
 
     **Request Syntax** 
@@ -12995,7 +12946,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLockConfiguration>`_    
 
 
     **Request Syntax** 
@@ -13127,7 +13077,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectRetention>`_    
 
 
     **Request Syntax** 
@@ -13262,7 +13211,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging>`_    
 
 
     **Request Syntax** 
@@ -13486,7 +13434,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent>`_    
 
 
     **Request Syntax** 
@@ -13647,7 +13594,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetPublicAccessBlock>`_    
 
 
     **Request Syntax** 
@@ -13771,7 +13717,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetSearchMetadata>`_    
 
 
     **Request Syntax** 
@@ -13890,7 +13835,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetSystemMetadata>`_    
 
 
     **Request Syntax** 
@@ -14012,7 +13956,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
 
 
     **Request Syntax** 
@@ -14193,7 +14136,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -14758,7 +14700,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketAnalyticsConfigurations>`_    
 
 
     **Request Syntax** 
@@ -15085,7 +15026,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketIntelligentTieringConfigurations>`_    
 
 
     **Request Syntax** 
@@ -15371,7 +15311,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketInventoryConfigurations>`_    
 
 
     **Request Syntax** 
@@ -15675,7 +15614,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketMetricsConfigurations>`_    
 
 
     **Request Syntax** 
@@ -15902,7 +15840,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_    
 
 
     **Request Syntax** 
@@ -16031,7 +15968,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
 
 
     **Request Syntax** 
@@ -16543,7 +16479,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_    
 
 
     **Request Syntax** 
@@ -17039,7 +16974,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
 
 
     **Request Syntax** 
@@ -17461,7 +17395,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
 
 
     **Request Syntax** 
@@ -17926,7 +17859,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
 
 
     **Request Syntax** 
@@ -18348,7 +18280,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/MetadataSearch>`_    
 
 
     **Request Syntax** 
@@ -18669,7 +18600,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAccelerateConfiguration>`_    
 
 
     **Request Syntax** 
@@ -18904,7 +18834,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
 
 
     **Request Syntax** 
@@ -19262,7 +19191,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAnalyticsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -19559,7 +19487,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
 
 
     **Request Syntax** 
@@ -19799,7 +19726,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketEncryption>`_    
 
 
     **Request Syntax** 
@@ -20031,7 +19957,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketIntelligentTieringConfiguration>`_    
 
 
     **Request Syntax** 
@@ -20313,7 +20238,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketInventoryConfiguration>`_    
 
 
     **Request Syntax** 
@@ -20611,7 +20535,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -20944,7 +20867,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_    
 
 
     **Request Syntax** 
@@ -21472,7 +21394,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging>`_    
 
 
     **Request Syntax** 
@@ -21757,7 +21678,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration>`_    
 
 
     **Request Syntax** 
@@ -21943,7 +21863,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotification>`_    
 
 
     **Request Syntax** 
@@ -22232,7 +22151,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotificationConfiguration>`_    
 
 
     **Request Syntax** 
@@ -22678,7 +22596,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketOwnershipControls>`_    
 
 
     **Request Syntax** 
@@ -22809,7 +22726,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy>`_    
 
 
     **Request Syntax** 
@@ -22973,7 +22889,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication>`_    
 
 
     **Request Syntax** 
@@ -23555,7 +23470,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_    
 
 
     **Request Syntax** 
@@ -23720,7 +23634,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_    
 
 
     **Request Syntax** 
@@ -23896,7 +23809,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
 
 
     **Request Syntax** 
@@ -24073,7 +23985,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_    
 
 
     **Request Syntax** 
@@ -24482,7 +24393,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
 
 
     **Request Syntax** 
@@ -25371,7 +25281,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
 
 
     **Request Syntax** 
@@ -25743,7 +25652,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLegalHold>`_    
 
 
     **Request Syntax** 
@@ -25895,7 +25803,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectLockConfiguration>`_    
 
 
     **Request Syntax** 
@@ -26066,7 +25973,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectRetention>`_    
 
 
     **Request Syntax** 
@@ -26299,7 +26205,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging>`_    
 
 
     **Request Syntax** 
@@ -26534,7 +26439,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutPublicAccessBlock>`_    
 
 
     **Request Syntax** 
@@ -26868,7 +26772,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
 
 
     **Request Syntax** 
@@ -27712,7 +27615,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/SelectObjectContent>`_    
 
 
     **Request Syntax** 
@@ -28422,7 +28324,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
 
 
     **Request Syntax** 
@@ -28860,7 +28761,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
 
 
     **Request Syntax** 
@@ -29274,7 +29174,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/WriteGetObjectResponse>`_    
 
 
     **Request Syntax** 
@@ -29753,7 +29652,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_multipart_uploads`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
 
 
     **Request Syntax** 
@@ -30109,7 +30007,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_object_versions`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_    
 
 
     **Request Syntax** 
@@ -30535,7 +30432,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
 
 
     **Request Syntax** 
@@ -30902,7 +30798,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects_v2`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
 
 
     **Request Syntax** 
@@ -31311,7 +31206,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_parts`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
 
 
     **Request Syntax** 
@@ -31727,7 +31621,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
 
 
     **Request Syntax** 
@@ -31805,7 +31698,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
 
 
     **Request Syntax** 
@@ -31883,7 +31775,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -32083,7 +31974,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -32510,7 +32400,6 @@ Service Resource
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
 
 
     **Request Syntax** 
@@ -32939,7 +32828,6 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
 
 
       **Request Syntax** 
@@ -32955,7 +32843,6 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection filtered by kwargs passed to method. A Bucket collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
 
 
       **Request Syntax** 
@@ -32971,7 +32858,6 @@ Service Resource
 
       Creates an iterable up to a specified amount of Bucket resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
 
 
       **Request Syntax** 
@@ -32987,7 +32873,6 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection, but limits the number of items returned by each service call by the specified amount.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
 
 
       **Request Syntax** 
@@ -33354,7 +33239,6 @@ Bucket
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
 
 
     **Request Syntax** 
@@ -33528,7 +33412,6 @@ Bucket
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
 
 
     **Request Syntax** 
@@ -33590,7 +33473,6 @@ Bucket
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
 
 
     **Request Syntax** 
@@ -35289,7 +35171,6 @@ Bucket
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
 
 
     **Request Syntax** 
@@ -35916,7 +35797,6 @@ Bucket
 
       Creates an iterable of all MultipartUpload resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
 
 
       **Request Syntax** 
@@ -35933,7 +35813,6 @@ Bucket
 
       Creates an iterable of all MultipartUpload resources in the collection filtered by kwargs passed to method. A MultipartUpload collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
 
 
       **Request Syntax** 
@@ -36025,7 +35904,6 @@ Bucket
 
       Creates an iterable up to a specified amount of MultipartUpload resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
 
 
       **Request Syntax** 
@@ -36047,7 +35925,6 @@ Bucket
 
       Creates an iterable of all MultipartUpload resources in the collection, but limits the number of items returned by each service call by the specified amount.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
 
 
       **Request Syntax** 
@@ -36073,7 +35950,6 @@ Bucket
 
       Creates an iterable of all ObjectVersion resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
 
 
       **Request Syntax** 
@@ -36128,7 +36004,6 @@ Bucket
 
       
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_      
 
 
       **Request Syntax** 
@@ -37567,7 +37442,6 @@ Bucket
 
       Creates an iterable of all ObjectVersion resources in the collection filtered by kwargs passed to method. A ObjectVersion collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
 
 
       **Request Syntax** 
@@ -37647,7 +37521,6 @@ Bucket
 
       Creates an iterable up to a specified amount of ObjectVersion resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
 
 
       **Request Syntax** 
@@ -37669,7 +37542,6 @@ Bucket
 
       Creates an iterable of all ObjectVersion resources in the collection, but limits the number of items returned by each service call by the specified amount.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
 
 
       **Request Syntax** 
@@ -37695,7 +37567,6 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
 
 
       **Request Syntax** 
@@ -37750,7 +37621,6 @@ Bucket
 
       
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_      
 
 
       **Request Syntax** 
@@ -39189,7 +39059,6 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection filtered by kwargs passed to method. A ObjectSummary collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
 
 
       **Request Syntax** 
@@ -39269,7 +39138,6 @@ Bucket
 
       Creates an iterable up to a specified amount of ObjectSummary resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
 
 
       **Request Syntax** 
@@ -39291,7 +39159,6 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection, but limits the number of items returned by each service call by the specified amount.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
 
 
       **Request Syntax** 
@@ -39320,7 +39187,6 @@ Bucket
 
     Waits until this Bucket is exists. This method calls :py:meth:`S3.Waiter.bucket_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
 
 
     **Request Syntax** 
@@ -39343,7 +39209,6 @@ Bucket
 
     Waits until this Bucket is not exists. This method calls :py:meth:`S3.Waiter.bucket_not_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
 
 
     **Request Syntax** 
@@ -39582,7 +39447,6 @@ BucketAcl
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -39766,7 +39630,6 @@ BucketAcl
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
 
 
     **Request Syntax** 
@@ -40010,7 +39873,6 @@ BucketAcl
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -40220,7 +40082,6 @@ BucketCors
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
 
 
     **Request Syntax** 
@@ -40255,7 +40116,6 @@ BucketCors
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -40317,7 +40177,6 @@ BucketCors
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
 
 
     **Request Syntax** 
@@ -40457,7 +40316,6 @@ BucketCors
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -40768,7 +40626,6 @@ BucketLifecycle
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -40803,7 +40660,6 @@ BucketLifecycle
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle` to update the attributes of the BucketLifecycle resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -40888,7 +40744,6 @@ BucketLifecycle
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -41136,7 +40991,6 @@ BucketLifecycle
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle` to update the attributes of the BucketLifecycle resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -41583,7 +41437,6 @@ BucketLifecycleConfiguration
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
 
 
     **Request Syntax** 
@@ -41618,7 +41471,6 @@ BucketLifecycleConfiguration
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the attributes of the BucketLifecycleConfiguration resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -41708,7 +41560,6 @@ BucketLifecycleConfiguration
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_    
 
 
     **Request Syntax** 
@@ -42116,7 +41967,6 @@ BucketLifecycleConfiguration
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the attributes of the BucketLifecycleConfiguration resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -42366,7 +42216,6 @@ BucketLogging
 
     Calls :py:meth:`S3.Client.get_bucket_logging` to update the attributes of the BucketLogging resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -42448,7 +42297,6 @@ BucketLogging
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLogging>`_    
 
 
     **Request Syntax** 
@@ -42642,7 +42490,6 @@ BucketLogging
 
     Calls :py:meth:`S3.Client.get_bucket_logging` to update the attributes of the BucketLogging resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43061,7 +42908,6 @@ BucketNotification
 
     Calls :py:meth:`S3.Client.get_bucket_notification_configuration` to update the attributes of the BucketNotification resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43143,7 +42989,6 @@ BucketNotification
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketNotificationConfiguration>`_    
 
 
     **Request Syntax** 
@@ -43527,7 +43372,6 @@ BucketNotification
 
     Calls :py:meth:`S3.Client.get_bucket_notification_configuration` to update the attributes of the BucketNotification resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43680,7 +43524,6 @@ BucketPolicy
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_    
 
 
     **Request Syntax** 
@@ -43715,7 +43558,6 @@ BucketPolicy
 
     Calls :py:meth:`S3.Client.get_bucket_policy` to update the attributes of the BucketPolicy resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43763,7 +43605,6 @@ BucketPolicy
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketPolicy>`_    
 
 
     **Request Syntax** 
@@ -43818,7 +43659,6 @@ BucketPolicy
 
     Calls :py:meth:`S3.Client.get_bucket_policy` to update the attributes of the BucketPolicy resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43945,7 +43785,6 @@ BucketRequestPayment
 
     Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes of the BucketRequestPayment resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -43975,7 +43814,6 @@ BucketRequestPayment
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_    
 
 
     **Request Syntax** 
@@ -44031,7 +43869,6 @@ BucketRequestPayment
 
     Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes of the BucketRequestPayment resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -44193,7 +44030,6 @@ BucketTagging
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_    
 
 
     **Request Syntax** 
@@ -44228,7 +44064,6 @@ BucketTagging
 
     Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the BucketTagging resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -44316,7 +44151,6 @@ BucketTagging
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_    
 
 
     **Request Syntax** 
@@ -44400,7 +44234,6 @@ BucketTagging
 
     Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the BucketTagging resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -44583,7 +44416,6 @@ BucketVersioning
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
 
 
     **Request Syntax** 
@@ -44640,7 +44472,6 @@ BucketVersioning
 
     Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the BucketVersioning resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -44702,7 +44533,6 @@ BucketVersioning
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
 
 
     **Request Syntax** 
@@ -44775,7 +44605,6 @@ BucketVersioning
 
     Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the BucketVersioning resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -44837,7 +44666,6 @@ BucketVersioning
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
 
 
     **Request Syntax** 
@@ -45206,7 +45034,6 @@ BucketWebsite
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_    
 
 
     **Request Syntax** 
@@ -45241,7 +45068,6 @@ BucketWebsite
 
     Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the BucketWebsite resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -45323,7 +45149,6 @@ BucketWebsite
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_    
 
 
     **Request Syntax** 
@@ -45589,7 +45414,6 @@ BucketWebsite
 
     Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the BucketWebsite resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -45866,7 +45690,6 @@ MultipartUpload
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -46022,7 +45845,6 @@ MultipartUpload
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -46258,7 +46080,6 @@ MultipartUpload
 
       Creates an iterable of all MultipartUploadPart resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
 
 
       **Request Syntax** 
@@ -46275,7 +46096,6 @@ MultipartUpload
 
       Creates an iterable of all MultipartUploadPart resources in the collection filtered by kwargs passed to method. A MultipartUploadPart collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
 
 
       **Request Syntax** 
@@ -46357,7 +46177,6 @@ MultipartUpload
 
       Creates an iterable up to a specified amount of MultipartUploadPart resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
 
 
       **Request Syntax** 
@@ -46379,7 +46198,6 @@ MultipartUpload
 
       Creates an iterable of all MultipartUploadPart resources in the collection, but limits the number of items returned by each service call by the specified amount.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
 
 
       **Request Syntax** 
@@ -46709,7 +46527,6 @@ MultipartUploadPart
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
 
 
     **Request Syntax** 
@@ -47105,7 +46922,6 @@ MultipartUploadPart
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
 
 
     **Request Syntax** 
@@ -48236,7 +48052,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
 
 
     **Request Syntax** 
@@ -48817,7 +48632,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
 
 
     **Request Syntax** 
@@ -49140,7 +48954,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
 
 
     **Request Syntax** 
@@ -49879,7 +49692,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -50183,7 +49995,6 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -50299,7 +50110,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
 
 
     **Request Syntax** 
@@ -50815,7 +50625,6 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -51035,7 +50844,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
 
 
     **Request Syntax** 
@@ -51844,7 +51652,6 @@ Object
 
     Waits until this Object is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -51980,7 +51787,6 @@ Object
 
     Waits until this Object is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -52354,7 +52160,6 @@ ObjectAcl
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -52526,7 +52331,6 @@ ObjectAcl
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
 
 
     **Request Syntax** 
@@ -52827,7 +52631,6 @@ ObjectAcl
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
 
 
     **Request Syntax** 
@@ -53284,7 +53087,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
 
 
     **Request Syntax** 
@@ -53865,7 +53667,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
 
 
     **Request Syntax** 
@@ -54118,7 +53919,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
 
 
     **Request Syntax** 
@@ -54857,7 +54657,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
 
 
     **Request Syntax** 
@@ -55270,7 +55069,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
 
 
     **Request Syntax** 
@@ -55992,7 +55790,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
 
 
     **Request Syntax** 
@@ -56742,7 +56539,6 @@ ObjectSummary
 
     Waits until this ObjectSummary is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -56878,7 +56674,6 @@ ObjectSummary
 
     Waits until this ObjectSummary is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
@@ -57269,7 +57064,6 @@ ObjectVersion
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
 
 
     **Request Syntax** 
@@ -57513,7 +57307,6 @@ ObjectVersion
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
 
 
     **Request Syntax** 
@@ -58137,7 +57930,6 @@ ObjectVersion
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
 
 
     **Request Syntax** 
