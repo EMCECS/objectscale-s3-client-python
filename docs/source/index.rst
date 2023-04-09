@@ -7,7 +7,7 @@ ObjectScale S3 Client documentation
 ====================
 
 You use the ObjectScale S3 Client to access object level storage through the traditional Boto3 commands
-but with the extension of metadata availability. The Client provides an object-oriented API for developers
+but with the extension of search metadata availability. The Client provides an object-oriented API for developers
 to use in Python.
 
 
