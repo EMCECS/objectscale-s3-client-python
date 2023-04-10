@@ -174,7 +174,7 @@
                 },
                 "Query":{
                   "shape":"Query",
-                  "documentation":"<p> (required) is an expression takes the form:[(]{<em>condition</em>1}[%20[and/or]%20{<em>condition</em>2}][)][%20[and/or]%20...]</p><p>where:</p><ul><li><em>condition</em> is a metadata keyname filter in the form:<em>{selector} {operator} {argument}</em>, for example 'LastModified&gt;2015-01-01T00:00:00Z'</li><p></p><p>in which:</p><ul><li><em>selector </em> is a searchable keyname associated with the bucket</li><li><em>operator </em> is one of: ==, &gt;, &lt;, &gt;=, &lt;=</li><li><em>argument </em> is a value against which the selector is tested. The form of the argument must match the datatype of the key being indexed, which is one of: string, integer, datetime, decimal</li></ul></ul>",
+                  "documentation":"<p> (required) is an expression takes the form:[(]{<em>condition</em>1}[%20[and/or]%20{<em>condition</em>2}][)][%20[and/or]%20...]</p><p>where:</p><ul><li><em>condition </em> is a metadata keyname filter in the form: <em>{selector} {operator} {argument}</em>, for example 'LastModified&gt;2015-01-01T00:00:00Z'</li><p></p><p>in which:</p><ul><li><em>selector </em> is a searchable keyname associated with the bucket</li><li><em>operator </em> is one of: ==, &gt;, &lt;, &gt;=, &lt;=</li><li><em>argument </em> is a value against which the selector is tested. The form of the argument must match the datatype of the key being indexed, which is one of: string, integer, datetime, decimal</li></ul></ul>",
                   "location":"uri",
                   "locationName":"expression"
                 },
@@ -186,13 +186,13 @@
                 },
                 "Sorted":{
                   "shape":"Sorted",
-                  "documentation":"<p> (optional) is the name of one key that appears in the query expression that becomes the sort keyfor the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.</p>",
+                  "documentation":"<p> (optional) is the name of one key that appears in the query expression that becomes the sort key for the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.</p>",
                   "location":"querystring",
                   "locationName":"sorted"
                 },
                 "IncludeOlderVersion":{
                   "shape":"IncludeOlderVersions",
-                  "documentation":"<p> (optional) is a boolean that when set to <em>true</em> causes both current and non-current versions of the keys to be listed, and when set to <em>false </em>causes only the current versions of keys to be listed. The default is <em>false</em>.</p>",
+                  "documentation":"<p> (optional) is a boolean that when set to <em>true </em> causes both current and non-current versions of the keys to be listed, and when set to <em>false </em>causes only the current versions of keys to be listed. The default is <em>false</em>.</p>",
                   "location":"querystring",
                   "locationName":"include_older_version"
                 },
@@ -204,7 +204,7 @@
                 },
                 "Marker":{
                   "shape":"Marker",
-                  "documentation":"<p> (optional) specifies the key to start with which will be the one after the marker.  When no more pages exist, a marker will not be returned and <nextmarker>NO MORE PAGES </nextmarker> will be returned</p>",
+                  "documentation":"<p> (optional) specifies the key to start with which will be the one after the marker.  When no more pages exist, a marker will not be returned and <nextmarker>NO MORE PAGES </nextmarker> will be returned.</p>",
                   "location":"querystring",
                   "locationName":"marker"
                 }

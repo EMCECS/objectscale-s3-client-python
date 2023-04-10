@@ -18302,7 +18302,7 @@ Client
       
 
       
-      * conditionis a metadata keyname filter in the form:{selector} {operator} {argument}, for example 'LastModified>2015-01-01T00:00:00Z'
+      * condition is a metadata keyname filter in the form: {selector} {operator} {argument}, for example 'LastModified>2015-01-01T00:00:00Z'
       
 
       
@@ -18337,7 +18337,7 @@ Client
     :type Sorted: string
     :param Sorted: 
 
-      (optional) is the name of one key that appears in the query expression that becomes the sort keyfor the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.
+      (optional) is the name of one key that appears in the query expression that becomes the sort key for the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.
 
       
 
@@ -18345,7 +18345,7 @@ Client
     :type IncludeOlderVersion: boolean
     :param IncludeOlderVersion: 
 
-      (optional) is a boolean that when set to truecauses both current and non-current versions of the keys to be listed, and when set to false causes only the current versions of keys to be listed. The default is false.
+      (optional) is a boolean that when set to true causes both current and non-current versions of the keys to be listed, and when set to false causes only the current versions of keys to be listed. The default is false.
 
       
 

@@ -178,9 +178,9 @@ class ObjectScaleUnitTestSuite(unittest.TestCase):
         mark2 = response.get('NextMarker')
         response = self.client.metadata_search(Bucket='TESTBUCKET2', Query='LastModified > 2018-03-01T11:22:00Z', MaxKeys=1, Marker=mark2)
         self.assertEqual(response['ObjectMatches'][0]['objectName'], 'testObj3.txt')
-        
-class GetSearchSystemMetadataTests(unittest.TestCase):
- def testGetSystemMetadataResult(self):
+
+    # Verifies a working get system metadata 
+    def testGetSystemMetadataResult(self):
         self.session = Session()
         self.client = self.session.client('s3', **cred_object)
         
@@ -200,5 +200,3 @@ class GetSearchSystemMetadataTests(unittest.TestCase):
 
         self.client.delete_bucket(Bucket='mybucket')
         self.client.delete_bucket(Bucket='ourbucket')
-
-    
