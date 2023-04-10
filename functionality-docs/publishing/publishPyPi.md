@@ -134,3 +134,11 @@ It can be verified that the packages have the correct files by inspecting them. 
 Once the library has been prepared for publication, the following command will upload packages to PyPI for anyone to use:
 
 `twine upload dist/*`
+
+The library can be subsequently downloaded from TestPyPi with the following, specifying an extra index url to search dependencies on PyPi:
+
+`python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple obs_s3_client`
+
+The library can be downloaded from PyPi using this command: 
+
+`pip install obs_s3_client`
