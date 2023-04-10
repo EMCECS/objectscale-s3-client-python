@@ -46,6 +46,7 @@ cred_object = {
 session = Session()
 s3 = session.client('s3', **cred_object)
 
+
 # Access the event system on the S3 client
 event_system = s3.meta.events
 
@@ -100,4 +101,35 @@ event_system.register('before-parameter-build.s3.CreateBucket', get_metadata_par
 request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={
     'LocationConstraint': 'us-west-2'}, MetaData='x-amz-meta-STR;String')
 
-request = s3.metadata_search(Query='LastModified > 2018-03-01T11:22:00Z')
+
+# Adding custom parameters into createbucket 
+#request = s3.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2', 'Tester' : 'I am being Tested'} )
+
+# PRINTING REQUESTS / RESPONSES 
+print("\n CREATE BUCKET RESPONSE\n", request,"\n")
+response = s3.list_buckets()
+print(response)
+
+print("\n ENABLE \n")
+response = s3.getmdkeys(Bucket="mybucket")
+print(response)
+print("\n")
+
+# Look into head bucket call to see if metadata search is enabled
+response = s3.disablemeta(Bucket = "mybucket")
+print("\n Printing Disable Response \n")
+print(response)
+
+print("\n ENABLE \n")
+response = s3.getmdkeys(Bucket="mybucket")
+print(response)
+print("\n")
+
+# Response after delete bucket
+response = s3.delete_bucket(Bucket="mybucket")
+#print("\n", response, "\n")
+
+# Double check to see if bucket deleted
+response = s3.list_buckets()
+print("\n", response)
+print("\n")

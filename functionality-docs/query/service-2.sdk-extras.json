@@ -9,7 +9,7 @@
               "responseCode":200
           },
           "input":{"shape":"DisableMetadataSearchRequest"},
-          "output":{"shape":"enableOutput"},
+          "output":{"shape":"MetadataSearchList"},
           "documentationUrl":"",
           "documentation":""
         },
@@ -22,21 +22,20 @@
                 "responseCode":204
             },
             "input":{"shape":"DisableMetadataSearchRequest"},
-            "outuput":{"shape":"enableOutput"},
             "documentationUrl":"",
             "documentation":""
         },
 
-
-
+        
         "MetadataSearch":{
           "name":"MetadataSearch",
           "http":{
             "method":"GET",
-            "requestUri":"/?query={expression}",
+            "requestUri":"/{Bucket}/?query={expression}",
             "responseCode":200
           },
           "input":{"shape":"QueryRequest"},
+          "output":{"shape":"QueryResponse"},
           "documentationUrl":"",
           "documentation":""
         }
@@ -75,43 +74,18 @@
           "MetadataSearchList":{
             "type":"structure",
             "members":{
+              "MetadataSearchEnabled":{
+                "shape":"MetadataSearchEnabled"
+              },
               "IndexableKeys":{
                 "shape":"IndexableKeys"
-              },
-              "OptionalAttributes":{
-                "shape":"OptionalAttributes"
               }
             }
           },
-          "OptionalAttributes":{
-            "type":"list",
-            "member":{
-              "shape":"Attribute"
-            }
+          "MetadataSearchEnabled":{
+            "type":"boolean"
           },
-          "Attribute":{
-            "type":"structure",
-            "members":{
-              "Name":{
-                "shape":"AttributeName"
-              },
-              "Datatype":{
-                "shape":"AttributeDatatype"
-              }
-            }
-          },
-          "enableOutput":{
-            "type":"structure",
-            "members":{
-              "IndexableKeys":{
-                "shape":"IndexableKeys"
-              },
-              "OptionalAttributes":{
-                "shape":"OptionalAttributes"
-              }
-            }
-          
-          },
+         
           "DisableMetadataSearchRequest":{
             "type":"structure",
             "required":["Bucket"],
@@ -140,19 +114,52 @@
 
       "QueryRequest":{
         "type":"structure",
-        "required":["Query"],
+        "required":["Bucket","Query"],
         "members":{
+          "Bucket":{
+            "shape":"BucketName",
+            "location":"uri",
+            "locationName":"Bucket"
+          },
           "Query":{
             "shape":"Query",
             "location":"uri",
             "locationName":"expression"
+          },
+          "Attributes":{
+            "shape":"Attributes",
+            "location":"querystring",
+            "locationName":"attributes"
+          },
+          "Sorted":{
+            "shape":"Sorted",
+            "location":"querystring",
+            "locationName":"sorted"
+          },
+          "IncludeOlderVersion":{
+            "shape":"IncludeOlderVersions",
+            "location":"querystring",
+            "locationName":"include_older_version"
+          },
+          "MaxKeys":{
+            "shape":"MaxKeys",
+            "location":"querystring",
+            "locationName":"max-keys"
+          },
+          "Marker":{
+            "shape":"Marker",
+            "location":"querystring",
+            "locationName":"marker"
           }
         }
       },
-      "Query":{
-        "type":"string"
-      },
-
+      "Query":{"type":"string"},
+      "Attributes":{"type":"string"},
+      "Sorted":{"type":"string"},
+      "IncludeOlderVersions":{"type":"boolean"},
+      "MaxKeys":{"type":"integer"},
+      "Marker":{"type":"string"},
+      
       "QueryResponse":{
         "type":"structure",
         "members":{
@@ -176,9 +183,7 @@
           }
         }
       },
-      "NextMarker":{
-        "type":"string"
-      },
+      "NextMarker":{"type":"string"},
       "ObjectMatches":{
         "type":"list",
         "member":{
@@ -188,32 +193,48 @@
       "object":{
         "type":"structure",
         "members":{
-          "objectName":{
-            "shape":"objectName"
-          },
-          "objectId":{
-            "shape":"objectId"
-          },
-          "versionId":{
-            "shape":"versionId"
-          },
-          "objectOwnerZone":{
-            "shape":"objectOwnerZone"
-          },
-          "queryMds":{
-            "shape":"queryMds"
-          },
-          "queryBinaryMds":{
-            "shape":"queryBinaryMds"
-          },
-          "indexKey":{
-            "shape":"indexKey"
-          },
-          "isFanoutObject":{
-            "shape":"isFanoutObject"
-          }
+          "objectName":{"shape":"objectName"},
+          "objectId":{"shape":"objectId"},
+          "versionId":{"shape":"versionId"},
+          "queryMds":{"shape":"queryMds"},
+          "queryBinaryMds":{"shape":"queryBinaryMds"},
+          "indexKey":{"shape":"indexKey"},
+          "isFanoutObject":{"shape":"isFanoutObject"}
         }
-      }
+      },
+      "objectName":{"type":"string"},
+      "objectId":{"type":"string"},
+      "versionId":{"type":"string"},
+      "objectOwnerZone":{"type":"string"},
+      "queryMds":{
+        "type":"structure",
+        "members":{
+          "type":{"shape":"MDtype"},
+          "mdMap":{"shape":"Metadata"}
+        }
+      },
+      "MDtype":{"type":"string"},
+      "queryBinaryMds":{
+        "type":"structure",
+        "members":{
+          "left":{"shape":"left"},
+          "right":{"shape":"right"}
+        }
+      },
+      "left":{"type":"string"},
+      "right":{"type":"string"},
+      "indexKey":{"type":"string"},
+      "isFanoutObject":{"type":"boolean"},
+      "CommonPrefixMatches":{
+        "type":"structure",
+        "members":{
+          "PrefixGroups":{"shape":"PrefixGroups"}
+        }
+      },
+      "PrefixGroups":{"shape":"string"}
+
+        
+      
 
     }
   }
