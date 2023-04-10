@@ -1,5 +1,5 @@
 '''
-Copyright 2022 Dell Technologies. All Rights Reserved.
+Copyright (c) 2021 Dell Inc., or its subsidiaries. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file execpt in compliance with License.
@@ -52,26 +52,22 @@ client = session.client('s3', **cred_object)
 
 res = client.create_bucket(Bucket='mybucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
 
-res = client.create_bucket(Bucket='ourbucket', CreateBucketConfiguration={'LocationConstraint': 'us-west-2'}, SearchMetaData='Size,CreateTime,LastModified,x-amz-meta-STR;String,x-amz-meta-INT;Integer')
-
-
-# res = client.get_bucket_acl(Bucket='mybucket')
+res = client.get_bucket_acl(Bucket='mybucket')
 # print(res)
 
 # boto3.set_stream_logger('')
 
 
-res = client.get_system_metadata()
+res = client.get_search_metadata(Bucket='mybucket')
 print(res)
 
-# res = client.get_search_metadata(Bucket='mybucket')
-# print(res['IndexableKeys'])
+res = client.disable_metadata_search(Bucket='mybucket')
+print(res)
 
-# res = client.disable_metadata_search(Bucket='mybucket')
-# print(res['ResponseMetadata']['HTTPStatusCode'])
+res = client.get_search_metadata(Bucket='mybucket')
+print(res)
 
 client.delete_bucket(Bucket='mybucket')
-client.delete_bucket(Bucket='ourbucket')
 
 
 

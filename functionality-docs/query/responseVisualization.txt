@@ -1,0 +1,52 @@
+Made this file to help visualize structure of response object for 
+metadatasearch query.
+
+<BucketQueryResult>
+	<Name>testBucket1</Name>
+	<IsTruncated>false</IsTruncated>
+	<MaxKeys>1000</MaxKeys>
+	<ObjectMatches>
+		<object>
+			<objectName>testObj1.txt</objectName>
+			<objectId>f1866ea272b236b0fe3416f5d0b9cc8ea4aaeb109be176ba5e90a5ab34b7c203</objectId>
+			<versionId>0</versionId>
+			<queryMds>
+				<type>SYSMD</type>
+				<mdMap>
+					<entry>
+					<key>mtime</key>
+					<value>1677491073927</value>
+					</entry>
+				</mdMap>
+			</queryMds>
+		</object>
+		<object>
+			<objectName>testObj2.txt</objectName>
+			<objectId>ab9f44ec70eb0c6e30b4dc51450dba581606e0b10ceb0aa9f9ab13b3e7348f5c</objectId>
+			<versionId>0</versionId>
+			<queryMds>
+				<type>SYSMD</type>
+				<mdMap>
+					<entry>
+					<key>mtime</key>
+					<value>1677491074172</value>
+					</entry>
+				</mdMap>
+			</queryMds>
+		</object>
+		<object>
+			<objectName>testObj3.txt</objectName>
+			<objectId>07b7930b164492970d7521ffc7ab292c766d7c73c6dfaf520e1358cce554eaed</objectId>
+			<versionId>0</versionId>
+			<queryMds>
+				<type>SYSMD</type>
+				<mdMap>
+					<entry>
+					<key>mtime</key>
+					<value>1677491074892</value>
+					</entry>
+				</mdMap>
+			</queryMds>
+		</object>
+	</ObjectMatches>
+</BucketQueryResult>
