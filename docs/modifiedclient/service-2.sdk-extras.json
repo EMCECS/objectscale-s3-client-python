@@ -1,0 +1,16 @@
+{   
+    "merge":{
+        "shapes":{
+            "MetaData":{
+              "type":"string"
+          },
+          "CreateBucketRequest":{
+              "members":{
+                "MetaData":{
+                  "shape":"MetaData"
+          }
+        }
+      }
+    }
+  }
+}
