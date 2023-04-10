@@ -1,3 +1,1 @@
-include pyproject.toml
-recursive-include src
-recursive-include docs
+recursive-include obs_s3_client *

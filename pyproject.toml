@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "obs-s3-client"
-version = "0.0.3"
+version = "0.0.28"
 description = "Open-source S3 client library in python to support ObjectScales proprietary S3 extensions"
 readme = "README.md"
 authors = [ {name="Drayer Sivertsen", email="drayer.sivertsen@wsu.edu"}, {name="Nathan Marugame", email="nathan.marugame@wsu.edu"}, {name="Killian Griffin", email="killian.griffin@wsu.edu"} ]
@@ -15,7 +15,6 @@ classifiers = [ 'Development Status :: 3 - Alpha',
 'Programming Language :: Python :: 3.10',
 'Topic :: Software Development :: Libraries' ]
 keywords = [ 'ObjectScale', 'S3', 'Dell', 'boto3', 'botocore' ]
-requires-python = ">=3.6"
 dependencies = [ 'boto3' ]
 
 

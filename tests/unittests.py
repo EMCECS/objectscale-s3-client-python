@@ -17,6 +17,7 @@ limitations under the License.
 import unittest
 import urllib3, os, sys
 from cgitb import reset
+from obs_s3_client import botocore
 import boto3
 
 from boto3.session import Session
@@ -25,7 +26,7 @@ urllib3.disable_warnings()
 
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-rel_path = '../../../creds.txt'
+rel_path = '../../creds.txt'
 abs_file_path = os.path.join(script_dir, rel_path)
 
 with open(abs_file_path) as file:
