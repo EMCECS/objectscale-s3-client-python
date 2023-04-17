@@ -18361,7 +18361,7 @@ Client
     :type Marker: string
     :param Marker: 
 
-      (optional) specifies the key to start with which will be the one after the marker. When no more pages exist, a marker will not be returned and NO MORE PAGES will be returned
+      (optional) specifies the key to start with which will be the one after the marker. When no more pages exist, a marker will not be returned and NO MORE PAGES will be returned.
 
       
 
