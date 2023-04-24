@@ -54,7 +54,23 @@ Additional details for these requirements can be found in the `CONTRIBUTING.md` 
 
 ## Additional Documentation
 
-The documentation module PyDoc was used for documenting the code. This documentation can be accessed through the earlier linked github code.
+The documentation module Sphinx was used for documenting the code. This documentation can be accessed through the earlier linked github code.
+
+## How to Generate Documentation
+The documentation can be generated using the following script. 
+
+```
+git checkout gh-pages
+git rm -rf .
+git checkout main -- docs
+
+make html
+
+git add .
+git commit -s -m "updated docs"
+git push
+```
+The script checks out the orphan gh-pages branch, removes all existing files, then copies the updated docs in the main branch. "make html" generates the new documentation and the final commands push the updates to github. 
 
 ## License
 
