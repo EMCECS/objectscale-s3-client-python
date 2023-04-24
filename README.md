@@ -59,3 +59,9 @@ The documentation module PyDoc was used for documenting the code. This documenta
 ## License
 
 This project uses the Apache License. The license can be viewed in the `LICENSE` file in the project repository.
+
+## Finding Dependencies of package
+1. install objectscale python package using pip install
+2. install pipdeptree using pip install
+3. run command 'pipdeptree -p obs-s3-client'
+4. dependency tree should be displayed
