@@ -2175,11 +2175,7 @@ Client
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metadata used for the ECS metadata search operation.
-
-      
-
-      
+      Search metadata used for the ECS metadata search operation. For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3BucketOperations_createBucket_3e75383a5992a6d15fb81e872e46e256_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
       
 
@@ -5966,7 +5962,7 @@ Client
 
     
 
-    
+    For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3MetadataKeyListOperations_disableMetadataSearch_7dbe35c15fbfcbc751fb549154e2319f_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
     
 
@@ -13713,7 +13709,7 @@ Client
 
     
 
-    
+    For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3MetadataKeyListOperations_getBucketMetadataSearchKeys_6c39daa62da096cac70549d5b99674cb_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
     
 
@@ -13776,10 +13772,6 @@ Client
           List of searchable metadata keys for the bucket.
 
           
-
-          
-
-          
           
 
           - *(dict) --* 
@@ -13831,7 +13823,7 @@ Client
 
     
 
-    
+    For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3MetadataKeySystemListOperation_getSystemMetadataSearchKeys_7ba1e5f7a43a947638866ea460e03c53_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
     
 
@@ -13874,10 +13866,6 @@ Client
         - **IndexableKeys** *(list) --* 
 
           List of searchable metadata keys for the bucket.
-
-          
-
-          
 
           
           
@@ -18276,7 +18264,7 @@ Client
 
     
 
-    
+    For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3MetadataSearchOperation_getObjectsList_f8907356ba2c22b312b538e2a72efeb5_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
     
 
@@ -18314,7 +18302,7 @@ Client
       
 
       
-      * conditionis a metadata keyname filter in the form:{selector} {operator} {argument}, for example 'LastModified>2015-01-01T00:00:00Z'
+      * condition is a metadata keyname filter in the form: {selector} {operator} {argument}, for example 'LastModified>2015-01-01T00:00:00Z'
       
 
       
@@ -18349,7 +18337,7 @@ Client
     :type Sorted: string
     :param Sorted: 
 
-      (optional) is the name of one key that appears in the query expression that becomes the sort keyfor the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.
+      (optional) is the name of one key that appears in the query expression that becomes the sort key for the query results. If this optional parameter is absent, the sort order is the first keyname that appears in the expression.
 
       
 
@@ -18357,7 +18345,7 @@ Client
     :type IncludeOlderVersion: boolean
     :param IncludeOlderVersion: 
 
-      (optional) is a boolean that when set to truecauses both current and non-current versions of the keys to be listed, and when set to false causes only the current versions of keys to be listed. The default is false.
+      (optional) is a boolean that when set to true causes both current and non-current versions of the keys to be listed, and when set to false causes only the current versions of keys to be listed. The default is false.
 
       
 
@@ -18427,19 +18415,11 @@ Client
           Name of the bucket.
 
           
-
-          
-
-          
         
 
         - **NextMarker** *(string) --* 
 
           Marker to request the next page of results.
-
-          
-
-          
 
           
         
@@ -18449,10 +18429,6 @@ Client
           Indicates whether all the objects matching query were returned (if true more results remain and another query is necessary).
 
           
-
-          
-
-          
         
 
         - **MaxKeys** *(integer) --* 
@@ -18460,19 +18436,11 @@ Client
           The maximum number of keys that will be returned in the response.
 
           
-
-          
-
-          
         
 
         - **ObjectMatches** *(list) --* 
 
           List of objects that match the query.
-
-          
-
-          
 
           
           
@@ -18530,19 +18498,11 @@ Client
           List container of PrefixGroups.
 
           
-
-          
-
-          
           
 
           - **PrefixGroups** *(string) --* 
 
             A substring that starts at the beginning of the objectName and ends at the first occurrence of the specified delimiter after the prefix.
-
-            
-
-            
 
             
       
@@ -32527,11 +32487,7 @@ Service Resource
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metadata used for the ECS metadata search operation.
-
-      
-
-      
+      Search metadata used for the ECS metadata search operation. For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3BucketOperations_createBucket_3e75383a5992a6d15fb81e872e46e256_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
       
 
@@ -33357,11 +33313,7 @@ Bucket
     :type SearchMetaData: string
     :param SearchMetaData: 
 
-      Search metadata used for the ECS metadata search operation.
-
-      
-
-      
+      Search metadata used for the ECS metadata search operation. For more information, see `Dell API Documentation. <http://doc.isilon.com/ECS/3.6/API/S3BucketOperations_createBucket_3e75383a5992a6d15fb81e872e46e256_ba672412ac371bb6cf4e69291344510e_detail.html>`__ 
 
       
 

@@ -1,4 +1,0 @@
-https://object.ecstestdrive.com
-http://133092973853375605.public.ecstestdrive.com/{bucket_name}/{key_name}
-133092973853375605@ecstestdrive.emc.com
-wH7Gb/WkLWM/a97ROfVdlXkyka3e9WiFG4C9E+xY

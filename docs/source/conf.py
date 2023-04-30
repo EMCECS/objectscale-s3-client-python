@@ -1,3 +1,19 @@
+'''
+Copyright (c) 2021 Dell Inc., or its subsidiaries. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file execpt in compliance with License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and
+limitations under the License.
+'''
+
 # -*- coding: utf-8 -*-
 #
 # Configuration file for the Sphinx documentation builder.
@@ -71,7 +87,7 @@ f2.close()
 
 # -- Project information -----------------------------------------------------
 
-project = 'obs-s3-client'
+project = 'objectscale-s3-client'
 copyright = '2023, Drayer Sivertsen, Killian Griffin, Nathan Marugame'
 author = 'Drayer Sivertsen, Killian Griffin, Nathan Marugame'
 
@@ -157,7 +173,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'obs-s3-clientdoc'
+htmlhelp_basename = 'objectscale-s3-clientdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -184,7 +200,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'obs-s3-client.tex', 'obs-s3-client Documentation',
+    (master_doc, 'objectscale-s3-client.tex', 'objectscale-s3-client Documentation',
      'Drayer Sivertsen, Killian Griffin, Nathan Marugame', 'manual'),
 ]
 
@@ -194,7 +210,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'obs-s3-client', 'obs-s3-client Documentation',
+    (master_doc, 'objectscale-s3-client', 'objectscale-s3-client Documentation',
      [author], 1)
 ]
 
@@ -205,8 +221,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'obs-s3-client', 'obs-s3-client Documentation',
-     author, 'obs-s3-client', 'One line description of project.',
+    (master_doc, 'objectscale-s3-client', 'objectscale-s3-client Documentation',
+     author, 'objectscale-s3-client', 'One line description of project.',
      'Miscellaneous'),
 ]
 
