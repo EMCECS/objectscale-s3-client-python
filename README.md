@@ -7,13 +7,13 @@ Link to Project Management Software: https://app.clickup.com/14398002/v/l/7-1439
 
 This is a library developed for Dell Technologies extending the boto3 Python library for metadata search calls.
 
-The library takes existing S3 API calls designed for boto3 and implements new search indexes for metadata search functionality. It also generates new S3 API calls with metadata search functionality. A stretch goal for the project is implementation of client-side load balancing to improve preformance of the boto3 library.
+The library takes existing S3 API calls designed for boto3 and implements new search indexes for metadata search functionality. It also generates new S3 API calls with metadata search functionality.
 
 ## Installation
 
 The library will be accessible through PyPI. Project information can be seen here:
 
-<project PyPI link>
+<https://pypi.org/project/objectscale-s3-client/>
 
 ### Prerequisites
 
@@ -23,22 +23,20 @@ Python is neccessary to have installed before using the library. The project wil
 
 The package can be installed through pip, which comes with the installation of Python. Installation of the package can be done by simply executing the following command:
 
-`pip install PyscaleS3`
+`pip install objectscale-s3-client`
 
 ## Functionality
 
-High-level functionality described in summary info. As the product is being developed this section will be updated with more specific info.
+The project can be used by adding the following include to the project:
 
-TODO: Write usage instructions. Structuring it as a walkthrough can help structure this section,
-and showcase your features.
+`from objectscale-s3-client import botocore`
+
+From here an s3 client can be created using boto3 and the added calls will be used. Metadata search indicies have been added to the create bucket call and the metadata search call is accessible. A user can also get the metadata search indicies and disable metadata search on a bucket.
 
 
 ## Known Problems
 
-As the product is being developed, this section will be updated with known bugs.
-
-TODO: Describe any known issues, bugs, odd behaviors or code smells. 
-Provide steps to reproduce the problem and/or name a file or a function where the problem lives.
+* Disable metadata search is broken due to issues with the Dell API 
 
 
 ## Contributing
