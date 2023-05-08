@@ -23,7 +23,7 @@ Python is neccessary to have installed before using the library. The project wil
 
 The package can be installed through pip, which comes with the installation of Python. Installation of the package can be done by simply executing the following command:
 
-`pip install PyscaleS3`
+`pip install objectscale-s3-client`
 
 ## Functionality
 
