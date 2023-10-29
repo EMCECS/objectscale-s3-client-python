@@ -17,7 +17,7 @@ limitations under the License.
 import unittest
 import urllib3, os, sys
 from cgitb import reset
-# from obs_s3_client import botocore
+from objectscale_s3_client import botocore
 import boto3
 
 from boto3.session import Session
